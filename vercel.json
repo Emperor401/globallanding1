@@ -1,0 +1,6 @@
+{
+  "installCommand": "cd globallanding && npm install",
+  "buildCommand": "cd globallanding && npm run build",
+  "outputDirectory": "globallanding/.output/public",
+  "framework": null
+}
