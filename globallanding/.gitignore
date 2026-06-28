@@ -1,0 +1,20 @@
+# Nuxt
+.nuxt
+.output
+.data
+.env
+.cache
+
+# Node
+node_modules
+
+# Build
+dist
+
+# Logs
+logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
