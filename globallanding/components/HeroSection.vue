@@ -11,22 +11,23 @@
 
         <!-- Announcement badge -->
         <a href="#" class="hero-badge">
-          <span class="badge-dot" />
-          Announcing GlobalGle Pro
-          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="9 18 15 12 9 6" />
-          </svg>
+          <span class="badge-inner">
+            Announcing GlobalGle Pro
+            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6" />
+            </svg>
+          </span>
         </a>
 
         <!-- Heading -->
         <h1 class="hero-heading">
-          Trade Crypto<br />with Confidence
+          Bank Smarter.<br />Live Better.
         </h1>
 
         <!-- Subtitle -->
         <p class="hero-sub">
           The smartest way to buy, sell and grow your crypto portfolio.<br />
-          Secure, fast and built for every type of trader.
+          Secure, fast and built for everyone.
         </p>
 
         <!-- Buttons -->
@@ -159,34 +160,34 @@ onMounted(() => {
 }
 
 /* Badge */
+/* Outer = the gradient border itself */
 .hero-badge {
   display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.35rem 0.85rem 0.35rem 0.6rem;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 1.5px;
   border-radius: 999px;
-  color: rgba(255, 255, 255, 0.75);
-  font-size: 0.8rem;
-  font-weight: 500;
+  background: linear-gradient(90deg, #a855f7 0%, #6366f1 25%, #0ea5e9 55%, #06b6d4 75%, #10b981 100%);
   text-decoration: none;
-  transition: background 0.2s, border-color 0.2s, color 0.2s;
+  transition: filter 0.25s ease, transform 0.2s ease;
+  box-shadow: none;
 }
 
 .hero-badge:hover {
-  background: rgba(255, 255, 255, 0.07);
-  border-color: rgba(255, 255, 255, 0.2);
-  color: #ffffff;
+  filter: brightness(1.15);
+  transform: translateY(-1px);
 }
 
-.badge-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #ffffff;
-  opacity: 0.7;
-  flex-shrink: 0;
+/* Inner = the dark pill that sits on top of the gradient border */
+.badge-inner {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.42rem 1rem;
+  background: #08080d;
+  border-radius: 999px;
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.1px;
 }
 
 /* Heading */
@@ -259,6 +260,8 @@ onMounted(() => {
   transform: translateY(-50%);
   width: 52%;
   max-width: 720px;
+  max-height: 90vh;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -289,5 +292,89 @@ onMounted(() => {
   margin-top: -30px;
   pointer-events: none;
   filter: blur(10px);
+}
+
+/* ── Tablet ── */
+@media (max-width: 1023px) {
+  .hero-inner  { padding: 0 2rem 0 2rem; gap: 1rem; }
+  .hero-left   { width: 52%; }
+  .hero-right  { width: 48%; max-width: 520px; right: -2%; }
+  .hero-heading { letter-spacing: -1.5px; }
+}
+
+/* ── Mobile ── */
+@media (max-width: 767px) {
+  .hero {
+    min-height: unset;
+    align-items: flex-start;
+    background: #000000;
+  }
+
+  /* Remove gradient overlays so the background is pure black,
+     matching the video's black and making the cube look native */
+  .hero-bg,
+  .hero-bg::after { display: none; }
+
+  .hero-inner {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 4.5rem 1.5rem 4rem;
+    min-height: unset;
+    gap: 0.5rem;
+  }
+
+  /*
+   * The video file has empty black space below the cube model.
+   * max-height + overflow:hidden clips that dead space so the
+   * cube sits flush against the text below it.
+   */
+  .hero-right {
+    position: relative;
+    right: auto;
+    top: auto;
+    transform: none;
+    width: 70%;
+    max-width: 240px;
+    max-height: 200px;
+    overflow: hidden;
+    order: -1;
+    margin: 0;
+  }
+
+  .cube-shadow { display: none; }
+
+  .hero-left {
+    width: 100%;
+    max-width: 100%;
+    align-items: center;
+    text-align: center;
+    gap: 1.75rem;
+  }
+
+  .hero-heading {
+    font-size: clamp(2.6rem, 9vw, 3.4rem);
+    letter-spacing: -1.5px;
+  }
+
+  .hero-sub {
+    max-width: 100%;
+    font-size: 0.93rem;
+  }
+
+  .hero-sub br { display: none; }
+
+  .hero-actions {
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 0.25rem;
+  }
+
+  .btn-primary,
+  .btn-ghost {
+    flex: 1;
+    justify-content: center;
+    min-width: 140px;
+  }
 }
 </style>

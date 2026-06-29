@@ -19,12 +19,12 @@
       <!-- Heading -->
       <h2 ref="headingRef" class="cta-heading">
         The smarter way to<br />
-        <span class="cta-heading-outline">trade crypto</span>
+        <span class="cta-heading-outline">bank online</span>
       </h2>
 
       <!-- Subtitle -->
       <p ref="subRef" class="cta-sub">
-        Join thousands of traders already using GlobalGle.<br />
+        Join thousands of customers already using GlobalGle.<br />
         No experience needed — start in minutes.
       </p>
 
@@ -264,5 +264,15 @@ onMounted(() => {
   color: rgba(255,255,255,0.25);
   margin: 0;
   letter-spacing: 0.2px;
+}
+
+@media (max-width: 767px) {
+  .cta-section   { padding: 6rem 1.5rem; }
+  .cta-heading   { font-size: clamp(2.4rem, 9vw, 3.5rem); letter-spacing: -1.5px; }
+  .cta-sub br    { display: none; }
+  .cta-actions   { flex-direction: column; align-items: stretch; gap: 0.75rem; }
+  .cta-btn-primary,
+  .cta-btn-ghost { justify-content: center; }
+  .cta-trust     { font-size: 0.72rem; }
 }
 </style>

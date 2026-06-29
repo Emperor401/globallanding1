@@ -68,6 +68,16 @@
         </template>
       </div>
 
+      <!-- Hamburger — mobile only -->
+      <button
+        class="hamburger"
+        :class="{ 'is-open': mobileMenuOpen }"
+        @click="mobileMenuOpen = !mobileMenuOpen"
+        aria-label="Toggle navigation"
+      >
+        <span /><span /><span />
+      </button>
+
     </div>
 
     <!-- Features Dropdown -->
@@ -77,11 +87,11 @@
 
           <!-- Column 1 -->
           <div class="drop-col">
-            <a href="#" class="drop-link">Spot Trading</a>
-            <a href="#" class="drop-link">Futures</a>
-            <a href="#" class="drop-link">Margin Trading</a>
-            <a href="#" class="drop-link">Copy Trading</a>
-            <a href="#" class="drop-link">Staking</a>
+            <a href="#" class="drop-link">Payments</a>
+            <a href="#" class="drop-link">Wire Transfers</a>
+            <a href="#" class="drop-link">Loans & Credit</a>
+            <a href="#" class="drop-link">Auto Savings</a>
+            <a href="#" class="drop-link">Investments</a>
           </div>
 
           <!-- Divider -->
@@ -103,23 +113,34 @@
           <div class="drop-cards">
             <a href="#" class="drop-card">
               <span class="drop-card-title">Live<br />Markets</span>
-              <div class="card-graphic card-graphic--chart">
-                <svg viewBox="0 0 80 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <polyline points="0,40 20,28 35,32 50,15 65,20 80,5" stroke="rgba(255,255,255,0.2)" stroke-width="1.5" fill="none"/>
-                  <line x1="0" y1="10" x2="80" y2="10" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
-                  <line x1="0" y1="25" x2="80" y2="25" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
-                  <line x1="0" y1="40" x2="80" y2="40" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+              <div class="card-graphic">
+                <svg viewBox="0 0 138 100" fill="none" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                  <!-- grid lines horizontal -->
+                  <line x1="0" y1="20" x2="138" y2="20" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+                  <line x1="0" y1="40" x2="138" y2="40" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+                  <line x1="0" y1="60" x2="138" y2="60" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+                  <line x1="0" y1="80" x2="138" y2="80" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+                  <!-- grid lines vertical -->
+                  <line x1="27"  y1="0" x2="27"  y2="100" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+                  <line x1="55"  y1="0" x2="55"  y2="100" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+                  <line x1="83"  y1="0" x2="83"  y2="100" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+                  <line x1="111" y1="0" x2="111" y2="100" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+                  <!-- chart line -->
+                  <polyline points="0,78 22,60 40,68 60,38 85,46 110,22 138,8" stroke="rgba(255,255,255,0.22)" stroke-width="1.5" fill="none" stroke-linejoin="round"/>
                 </svg>
               </div>
             </a>
 
             <a href="#" class="drop-card">
               <span class="drop-card-title">Crypto<br />Earn</span>
-              <div class="card-graphic card-graphic--arc">
-                <svg viewBox="0 0 80 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M10,55 Q40,-10 70,55" stroke="rgba(255,255,255,0.18)" stroke-width="1.5" fill="none"/>
-                  <path d="M20,55 Q40,5 60,55" stroke="rgba(255,255,255,0.12)" stroke-width="1.5" fill="none"/>
-                  <path d="M30,55 Q40,20 50,55" stroke="rgba(255,255,255,0.08)" stroke-width="1.5" fill="none"/>
+              <div class="card-graphic">
+                <svg viewBox="0 0 138 100" fill="none" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                  <!-- concentric arcs rising from bottom -->
+                  <path d="M-10,100 Q69,-30 148,100" stroke="rgba(255,255,255,0.12)" stroke-width="1.5" fill="none"/>
+                  <path d="M10,100 Q69,-5 128,100"   stroke="rgba(255,255,255,0.10)" stroke-width="1.5" fill="none"/>
+                  <path d="M28,100 Q69,20 110,100"   stroke="rgba(255,255,255,0.08)" stroke-width="1.5" fill="none"/>
+                  <path d="M44,100 Q69,38 94,100"    stroke="rgba(255,255,255,0.07)" stroke-width="1.5" fill="none"/>
+                  <path d="M58,100 Q69,54 80,100"    stroke="rgba(255,255,255,0.06)" stroke-width="1.5" fill="none"/>
                 </svg>
               </div>
             </a>
@@ -235,12 +256,117 @@
     </Transition>
 
   </header>
+
+  <!-- Mobile menu — outside <header> so backdrop-filter doesn't trap position:fixed -->
+  <Transition name="mobile-fade">
+    <div v-if="mobileMenuOpen" class="mobile-menu">
+      <div class="mobile-inner">
+
+        <nav class="mobile-nav">
+
+          <!-- Features accordion -->
+          <div class="mobile-nav-item">
+            <button
+              class="mobile-nav-btn"
+              :class="{ 'is-expanded': mobileExpanded === 'Features' }"
+              @click="toggleMobileDropdown('Features')"
+            >
+              <span>Features</span>
+              <svg class="mobile-chevron" :class="{ rotated: mobileExpanded === 'Features' }" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </button>
+            <Transition name="mobile-accordion">
+              <div v-if="mobileExpanded === 'Features'" class="mobile-sub-links">
+                <a href="#" class="mobile-sub-link">Payments</a>
+                <a href="#" class="mobile-sub-link">Wire Transfers</a>
+                <a href="#" class="mobile-sub-link">Loans &amp; Credit</a>
+                <a href="#" class="mobile-sub-link">Auto Savings</a>
+                <a href="#" class="mobile-sub-link">Investments</a>
+                <a href="#" class="mobile-sub-link">Portfolio</a>
+                <a href="#" class="mobile-sub-link">Analytics</a>
+                <a href="#" class="mobile-sub-link">API Access</a>
+                <a href="#" class="mobile-sub-link">Webhooks</a>
+                <a href="#" class="mobile-sub-link">Wallets</a>
+              </div>
+            </Transition>
+          </div>
+
+          <!-- Company accordion -->
+          <div class="mobile-nav-item">
+            <button
+              class="mobile-nav-btn"
+              :class="{ 'is-expanded': mobileExpanded === 'Company' }"
+              @click="toggleMobileDropdown('Company')"
+            >
+              <span>Company</span>
+              <svg class="mobile-chevron" :class="{ rotated: mobileExpanded === 'Company' }" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </button>
+            <Transition name="mobile-accordion">
+              <div v-if="mobileExpanded === 'Company'" class="mobile-sub-links">
+                <a href="#" class="mobile-sub-link">About</a>
+                <a href="#" class="mobile-sub-link">Blog</a>
+                <a href="#" class="mobile-sub-link">Careers</a>
+                <a href="#" class="mobile-sub-link">Customers</a>
+                <a href="#" class="mobile-sub-link">Team</a>
+              </div>
+            </Transition>
+          </div>
+
+          <!-- Help accordion -->
+          <div class="mobile-nav-item">
+            <button
+              class="mobile-nav-btn"
+              :class="{ 'is-expanded': mobileExpanded === 'Help' }"
+              @click="toggleMobileDropdown('Help')"
+            >
+              <span>Help</span>
+              <svg class="mobile-chevron" :class="{ rotated: mobileExpanded === 'Help' }" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </button>
+            <Transition name="mobile-accordion">
+              <div v-if="mobileExpanded === 'Help'" class="mobile-sub-links">
+                <a href="#" class="mobile-sub-link">Contact</a>
+                <a href="#" class="mobile-sub-link">Support</a>
+                <a href="#" class="mobile-sub-link">Status</a>
+                <a href="#" class="mobile-sub-link">Migrate</a>
+              </div>
+            </Transition>
+          </div>
+
+        </nav>
+
+        <div class="mobile-sep" />
+
+        <div class="mobile-cta">
+          <template v-if="user">
+            <button class="mobile-logout-btn" @click="handleLogout">Log out</button>
+          </template>
+          <template v-else>
+            <NuxtLink to="/login"  class="mobile-login-btn"  @click="mobileMenuOpen = false">Log in</NuxtLink>
+            <NuxtLink to="/signup" class="mobile-signup-btn" @click="mobileMenuOpen = false">Get started</NuxtLink>
+          </template>
+        </div>
+
+      </div>
+    </div>
+  </Transition>
+
 </template>
 
 <script setup lang="ts">
 const navbar        = ref<HTMLElement | null>(null)
 const activeDropdown = ref<string | null>(null)
-const profileOpen   = ref(false)
+const profileOpen    = ref(false)
+const mobileMenuOpen = ref(false)
+const mobileExpanded = ref<string | null>(null)
+
+const toggleMobileDropdown = (label: string) => {
+  mobileExpanded.value = mobileExpanded.value === label ? null : label
+}
 
 const { getSession, logout } = useAuth()
 const router = useRouter()
@@ -251,7 +377,11 @@ const user = ref<{ name: string; email: string } | null>(null)
 const refreshUser = () => { user.value = getSession() }
 
 onMounted(refreshUser)
-watch(() => route.path, refreshUser)
+watch(() => route.path, () => {
+  refreshUser()
+  mobileMenuOpen.value = false
+  mobileExpanded.value = null
+})
 
 const initials = computed(() => {
   if (!user.value?.name) return 'U'
@@ -442,7 +572,7 @@ onMounted(() => {
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 14px;
   padding: 1.25rem;
-  min-width: 560px;
+  min-width: 580px;
 }
 
 /* Columns */
@@ -480,18 +610,19 @@ onMounted(() => {
 /* Cards */
 .drop-cards {
   display: flex;
-  gap: 0.6rem;
+  gap: 0.5rem;
   margin-left: 0.5rem;
+  align-self: stretch;
 }
 
 .drop-card {
   position: relative;
-  width: 120px;
-  height: 120px;
+  width: 138px;
+  height: 172px;
   background: #111111;
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 10px;
-  padding: 0.85rem;
+  border-radius: 12px;
+  padding: 0.9rem 0.9rem 0;
   text-decoration: none;
   overflow: hidden;
   transition: border-color 0.2s, background 0.2s;
@@ -502,24 +633,24 @@ onMounted(() => {
 
 .drop-card:hover {
   background: #161616;
-  border-color: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.14);
 }
 
 .drop-card-title {
-  font-size: 0.8rem;
+  font-size: 0.82rem;
   font-weight: 600;
   color: #ffffff;
-  line-height: 1.3;
+  line-height: 1.35;
   position: relative;
   z-index: 1;
 }
 
 .card-graphic {
   position: absolute;
-  bottom: 0.5rem;
-  right: 0.5rem;
-  width: 80px;
-  height: 50px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
 }
 
 .card-graphic svg {
@@ -798,5 +929,203 @@ onMounted(() => {
 .profile-logout:hover {
   background: rgba(255, 255, 255, 0.06);
   color: #ffffff;
+}
+
+/* ── Hamburger ── */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  width: 32px;
+  height: 32px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+.hamburger:hover { background: rgba(255,255,255,0.06); }
+
+.hamburger span {
+  display: block;
+  width: 20px;
+  height: 1.5px;
+  background: rgba(255,255,255,0.8);
+  border-radius: 2px;
+  transition: transform 0.25s ease, opacity 0.2s ease;
+  transform-origin: center;
+}
+.hamburger.is-open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.hamburger.is-open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.hamburger.is-open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+/* ── Mobile menu ── */
+.mobile-menu {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(6,6,6,0.98);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  z-index: 97;
+  overflow-y: auto;
+}
+
+.mobile-inner {
+  padding: 1.5rem 1.5rem 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Accordion nav */
+.mobile-nav {
+  display: flex;
+  flex-direction: column;
+}
+
+.mobile-nav-item {
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+
+.mobile-nav-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+  background: transparent;
+  border: none;
+  color: rgba(255,255,255,0.7);
+  font-size: 1rem;
+  font-weight: 500;
+  font-family: 'Urbanist', sans-serif;
+  cursor: pointer;
+  transition: color 0.2s;
+  text-align: left;
+}
+.mobile-nav-btn.is-expanded,
+.mobile-nav-btn:hover { color: #ffffff; }
+
+.mobile-chevron {
+  opacity: 0.45;
+  transition: transform 0.25s ease, opacity 0.2s;
+  flex-shrink: 0;
+}
+.mobile-chevron.rotated { transform: rotate(180deg); opacity: 1; }
+
+/* Sub-links panel */
+.mobile-sub-links {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 0.75rem;
+  overflow: hidden;
+}
+
+.mobile-sub-link {
+  padding: 0.55rem 0.75rem;
+  color: rgba(255,255,255,0.45);
+  font-size: 0.9rem;
+  font-weight: 450;
+  text-decoration: none;
+  border-radius: 7px;
+  transition: color 0.15s, background 0.15s;
+}
+.mobile-sub-link:hover {
+  color: #ffffff;
+  background: rgba(255,255,255,0.05);
+}
+
+/* Accordion slide transition */
+.mobile-accordion-enter-active,
+.mobile-accordion-leave-active {
+  transition: opacity 0.2s ease, max-height 0.25s ease;
+  overflow: hidden;
+  max-height: 500px;
+}
+.mobile-accordion-enter-from,
+.mobile-accordion-leave-to {
+  opacity: 0;
+  max-height: 0;
+}
+
+.mobile-sep {
+  height: 1px;
+  background: rgba(255,255,255,0.08);
+}
+
+.mobile-cta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.mobile-login-btn {
+  display: block;
+  padding: 0.85rem 1.25rem;
+  text-align: center;
+  color: rgba(255,255,255,0.7);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 10px;
+  transition: color 0.2s, border-color 0.2s;
+}
+.mobile-login-btn:hover { color: #ffffff; border-color: rgba(255,255,255,0.25); }
+
+.mobile-signup-btn {
+  display: block;
+  padding: 0.85rem 1.25rem;
+  text-align: center;
+  background: #ffffff;
+  color: #0a0a0a;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 700;
+  border-radius: 10px;
+  transition: background 0.2s;
+}
+.mobile-signup-btn:hover { background: #e5e5e5; }
+
+.mobile-logout-btn {
+  width: 100%;
+  padding: 0.85rem 1.25rem;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 10px;
+  color: rgba(255,255,255,0.6);
+  font-size: 0.9rem;
+  font-weight: 500;
+  font-family: 'Urbanist', sans-serif;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+}
+.mobile-logout-btn:hover { color: #ffffff; border-color: rgba(255,255,255,0.25); }
+
+/* Mobile menu transition */
+.mobile-fade-enter-active { transition: opacity 0.2s ease; }
+.mobile-fade-leave-active { transition: opacity 0.15s ease; }
+.mobile-fade-enter-from,
+.mobile-fade-leave-to     { opacity: 0; }
+
+/* ── Responsive breakpoints ── */
+@media (max-width: 767px) {
+  .navbar-inner    { padding: 0 1.25rem; }
+  .nav-links       { display: none; }
+  .btn-login,
+  .btn-get-started { display: none; }
+  .hamburger       { display: flex; }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .navbar-inner { padding: 0 1.5rem; }
+  .nav-btn      { padding: 0.4rem 0.5rem; font-size: 0.82rem; }
+  .btn-login    { padding: 0.4rem 0.75rem; }
 }
 </style>

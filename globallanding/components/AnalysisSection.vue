@@ -24,7 +24,7 @@
       <!-- Subtitle -->
       <p ref="subRef" class="analysis-sub">
         A modern analytics suite that makes it easy for anyone to read, interpret, and act on market data.<br />
-        Build your trading reports and share insights with your team.
+        Build your financial reports and share insights with your team.
       </p>
 
       <!-- Outer big box -->
@@ -432,5 +432,27 @@ onMounted(() => {
   font-size: 0.875rem;
   color: #c0c0c0;
   margin: 0;
+}
+
+@media (max-width: 767px) {
+  .analysis-section { padding: 5rem 1rem 0; }
+  .analysis-icon    { width: 120px; height: 120px; border-radius: 28px; }
+  .analysis-heading { font-size: clamp(1.8rem, 6vw, 2.4rem); }
+  .analysis-sub     { font-size: 0.9rem; }
+  .analysis-sub br  { display: none; }
+
+  .outer-toolbar {
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    padding: 0.75rem 1rem;
+  }
+  .toolbar-title  { order: -1; flex: 0 0 100%; text-align: left; font-size: 0.8rem; }
+  .toolbar-time   { display: none; }
+
+  .inner-card    { margin: 1rem; }
+  .inner-banner  { height: 160px; }
+  .banner-play   { width: 100px; }
+  .play-btn      { width: 60px; height: 60px; }
+  .inner-content { min-height: 120px; padding: 1rem 1.25rem; }
 }
 </style>

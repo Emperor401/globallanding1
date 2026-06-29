@@ -5,8 +5,8 @@
     <div ref="headerRef" class="testimonials-header">
       <h2 class="testimonials-heading">Beyond expectations</h2>
       <p class="testimonials-sub">
-        GlobalGle is driving remarkable trading experiences that enable success stories,<br />
-        empower investors, and fuel growth across all levels of traders.
+        GlobalGle is driving remarkable banking experiences that enable success stories,<br />
+        empower customers, and fuel growth across all levels of users.
       </p>
     </div>
 
@@ -48,9 +48,9 @@ const trackRef  = ref<HTMLElement | null>(null)
 
 const reviews = [
   {
-    quote: "GlobalGle completely changed how I approach trading. The interface is clean, fast, and the analytics are next level.",
+    quote: "GlobalGle completely changed how I manage my finances. The interface is clean, fast, and the analytics are next level.",
     name: "Marcus Reid",
-    role: "Day Trader & Investor",
+    role: "Entrepreneur & Investor",
     companyIcon: `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>`,
     avatar: cartoonA(),
   },
@@ -64,7 +64,7 @@ const reviews = [
   {
     quote: "We were live within minutes. The portfolio visibility and reporting tools gave us insights we didn't even know we were missing.",
     name: "Ty Okonkwo",
-    role: "Co-founder & CEO of TradeBase",
+    role: "Co-founder & CEO of FinBase",
     companyIcon: `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>`,
     avatar: cartoonC(),
   },
@@ -76,7 +76,7 @@ const reviews = [
     avatar: cartoonD(),
   },
   {
-    quote: "The copy trading feature alone is worth it. My portfolio has never been this well managed with so little effort.",
+    quote: "The auto-savings feature alone is worth it. My finances have never been this well managed with so little effort.",
     name: "James Osei",
     role: "Retail Investor & Blogger",
     companyIcon: `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>`,
@@ -386,5 +386,13 @@ onMounted(() => {
   font-size: 0.78rem;
   color: rgba(255,255,255,0.4);
   margin: 0;
+}
+
+@media (max-width: 767px) {
+  .testimonials-section  { padding: 5rem 0; }
+  .testimonials-header   { margin-bottom: 2.5rem; padding: 0 1.25rem; }
+  .testimonials-heading  { font-size: clamp(2rem, 7vw, 2.8rem); }
+  .testimonials-sub br   { display: none; }
+  .review-card           { width: 290px; padding: 1.25rem; }
 }
 </style>

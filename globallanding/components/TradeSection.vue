@@ -18,27 +18,22 @@
 
       <!-- Heading -->
       <h2 ref="headingRef" class="trade-heading">
-        Start trading <span class="gradient-text">this weekend</span>
+        Start banking <span class="gradient-text">this weekend</span>
       </h2>
 
       <!-- Subtitle -->
       <p ref="subtitleRef" class="trade-sub">
-        A seamless, secure platform so you can start trading in minutes.<br />
-        Supports all major cryptocurrencies and trading pairs.
+        A seamless, secure platform so you can start banking in minutes.<br />
+        Supports all major currencies and payment methods.
       </p>
 
-      <!-- Crypto icons row -->
-      <div ref="iconsRowRef" class="crypto-row">
-        <div
-          v-for="(coin, i) in coins"
-          :key="coin.symbol"
-          class="crypto-item"
-          :class="{ 'crypto-item--active': i === 0 }"
-        >
-          <div class="crypto-icon-box">
-            <img :src="coin.logo" :alt="coin.symbol" class="crypto-logo" />
+      <!-- 3 coin icons -->
+      <div ref="coinsRef" class="coins-row">
+        <div v-for="coin in coins" :key="coin.symbol" class="coin-item">
+          <div class="coin-box">
+            <img :src="coin.logo" :alt="coin.symbol" class="coin-logo" />
           </div>
-          <span class="crypto-label">{{ coin.symbol }}</span>
+          <span class="coin-label">{{ coin.symbol }}</span>
         </div>
       </div>
 
@@ -47,28 +42,18 @@
 </template>
 
 <script setup lang="ts">
-const iconRef  = ref<HTMLElement | null>(null)
+const iconRef   = ref<HTMLElement | null>(null)
 const iconVideo = '/messagevid.mp4'
-const headingRef = ref<HTMLElement | null>(null)
+const headingRef  = ref<HTMLElement | null>(null)
 const subtitleRef = ref<HTMLElement | null>(null)
-const iconsRowRef = ref<HTMLElement | null>(null)
+const coinsRef    = ref<HTMLElement | null>(null)
 
 const base = 'https://cdn.jsdelivr.net/npm/cryptocurrency-icons@0.18.1/svg/color'
 
 const coins = [
   { symbol: 'BTC',  logo: `${base}/btc.svg` },
   { symbol: 'ETH',  logo: `${base}/eth.svg` },
-  { symbol: 'BNB',  logo: `${base}/bnb.svg` },
   { symbol: 'USDT', logo: `${base}/usdt.svg` },
-  { symbol: 'SOL',  logo: `${base}/sol.svg` },
-  { symbol: 'ADA',  logo: `${base}/ada.svg` },
-  { symbol: 'XRP',  logo: `${base}/xrp.svg` },
-  { symbol: 'MATIC',logo: `${base}/matic.svg` },
-  { symbol: 'DOT',  logo: `${base}/dot.svg` },
-  { symbol: 'AVAX', logo: `${base}/avax.svg` },
-  { symbol: 'LINK', logo: `${base}/link.svg` },
-  { symbol: 'LTC',  logo: `${base}/ltc.svg` },
-  { symbol: 'DOGE', logo: `${base}/doge.svg` },
 ]
 
 const { $gsap } = useNuxtApp()
@@ -89,16 +74,15 @@ onMounted(() => {
     })
   })
 
-  if (iconsRowRef.value) {
-    $gsap.from(iconsRowRef.value.children, {
-      scrollTrigger: { trigger: iconsRowRef.value, start: 'top 88%' },
-      y: 20,
+  if (coinsRef.value) {
+    $gsap.from(coinsRef.value.children, {
+      scrollTrigger: { trigger: coinsRef.value, start: 'top 88%' },
+      y: 18,
       opacity: 0,
-      filter: 'blur(8px)',
       duration: 0.7,
       ease: 'power3.out',
-      stagger: 0.06,
-      delay: 0.3,
+      stagger: 0.1,
+      delay: 0.2,
     })
   }
 })
@@ -180,24 +164,23 @@ onMounted(() => {
   max-width: 580px;
 }
 
-/* Crypto row */
-.crypto-row {
+/* 3 coin row */
+.coins-row {
   display: flex;
   align-items: flex-start;
-  gap: 0.5rem;
-  flex-wrap: wrap;
+  gap: 0.75rem;
   justify-content: center;
-  margin-top: 1rem;
+  margin-top: 0.5rem;
 }
 
-.crypto-item {
+.coin-item {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
 }
 
-.crypto-icon-box {
+.coin-box {
   width: 56px;
   height: 56px;
   border-radius: 14px;
@@ -207,32 +190,32 @@ onMounted(() => {
   align-items: center;
   justify-content: center;
   transition: background 0.2s, border-color 0.2s;
-  cursor: pointer;
 }
 
-.crypto-icon-box:hover {
+.coin-box:hover {
   background: #1a1a1a;
   border-color: rgba(255, 255, 255, 0.18);
 }
 
-.crypto-item--active .crypto-icon-box {
-  border-color: rgba(255, 255, 255, 0.5);
-  background: #1a1a1a;
-}
-
-.crypto-logo {
+.coin-logo {
   width: 28px;
   height: 28px;
   object-fit: contain;
 }
 
-.crypto-label {
+.coin-label {
   font-size: 0.72rem;
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 0.5);
   font-weight: 500;
 }
 
-.crypto-item--active .crypto-label {
-  color: rgba(255, 255, 255, 0.85);
+@media (max-width: 767px) {
+  .trade-section  { padding: 5rem 1.5rem 3rem; }
+  .trade-icon     { width: 120px; height: 120px; border-radius: 28px; }
+  .trade-heading  { font-size: clamp(1.9rem, 7vw, 2.5rem); }
+  .trade-sub      { font-size: 0.9rem; }
+  .trade-sub br   { display: none; }
+  .coins-row      { gap: 0.65rem; }
+  .coin-box       { width: 50px; height: 50px; }
 }
 </style>

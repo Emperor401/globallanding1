@@ -21,7 +21,7 @@
 
       <!-- Subtitle -->
       <p ref="subRef" class="control-sub">
-        All the features you need to manage your trades, monitor with detailed analytics,<br />
+        All the features you need to manage your finances, monitor with detailed analytics,<br />
         and protect your assets — without the friction.
       </p>
 
@@ -34,9 +34,7 @@
           :class="{ 'feature-card--active': activeTab === i }"
           @click="activeTab = i"
         >
-          <div class="card-icon" :class="{ 'card-icon--active': activeTab === i }">
-            <span v-html="card.icon" />
-          </div>
+          <span v-html="card.icon" class="card-icon-ri" />
           <span class="card-label">{{ card.label }}</span>
         </div>
       </div>
@@ -115,7 +113,7 @@
               <!-- Tab 1: Full visibility -->
               <div v-else-if="activeTab === 1" key="visibility" class="tab-content">
                 <div class="main-header">
-                  <h3 class="main-title">Trades</h3>
+                  <h3 class="main-title">Transactions</h3>
                   <div class="main-actions">
                     <span class="main-badge">
                       <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
@@ -198,7 +196,7 @@ const cards = [
   },
   {
     label: 'Secure authentication',
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>`,
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>`,
   },
 ]
 
@@ -211,7 +209,7 @@ const sidebarItems = [
     { label: 'Settings',   active: false, icon: `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>` },
   ],
   [
-    { label: 'Trades',     active: true,  icon: `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>` },
+    { label: 'Transactions', active: true,  icon: `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>` },
     { label: 'Portfolio',  active: false, icon: `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>` },
     { label: 'Watchlist',  active: false, icon: `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>` },
     { label: 'Orders',     active: false, icon: `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>` },
@@ -230,7 +228,7 @@ const sidebarItems = [
 
 const analyticsStats = [
   { label: 'Total Volume',   value: '$1.24M',  change: '+12.4%', positive: true },
-  { label: 'Active Trades',  value: '3,204',   change: '+8.1%',  positive: true },
+  { label: 'Active Users',   value: '3,204',   change: '+8.1%',  positive: true },
   { label: 'Win Rate',       value: '87%',     change: '+2.3%',  positive: true },
   { label: 'Total P&L',     value: '+$48,210', change: '+5.6%',  positive: true },
 ]
@@ -367,31 +365,86 @@ onMounted(() => {
 .feature-card {
   display: flex; align-items: center; gap: 0.85rem;
   padding: 1rem 1.25rem;
+  height: 68px;
   background: #0e0e0e;
   border: 1px solid rgba(255,255,255,0.07);
   border-radius: 14px;
   cursor: pointer;
   transition: border-color 0.2s, background 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Rotating green border light */
+.feature-card::before {
+  content: '';
+  position: absolute;
+  width: 280%;
+  height: 280%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(0deg);
+  background: conic-gradient(
+    transparent 0deg,
+    transparent 260deg,
+    rgba(34, 197, 94, 0.15) 270deg,
+    rgba(74, 222, 128, 1) 285deg,
+    rgba(134, 239, 172, 1) 292deg,
+    rgba(74, 222, 128, 1) 300deg,
+    rgba(34, 197, 94, 0.15) 310deg,
+    transparent 325deg
+  );
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  animation: border-chase 2.2s linear infinite;
+  animation-play-state: paused;
+  z-index: 0;
+}
+
+/* Inner background overlay — sits above gradient, below content */
+.feature-card::after {
+  content: '';
+  position: absolute;
+  inset: 1px;
+  background: #0e0e0e;
+  border-radius: 13px;
+  z-index: 1;
+}
+
+.feature-card--active::after { background: #141414; }
+
+.feature-card--active::before {
+  opacity: 1;
+  animation-play-state: running;
 }
 
 .feature-card--active { background: #141414; border-color: rgba(255,255,255,0.18); }
 .feature-card:hover   { background: #131313; border-color: rgba(255,255,255,0.12); }
 
-.card-icon {
-  width: 36px; height: 36px;
-  background: #1a1a1a;
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 9px;
-  display: flex; align-items: center; justify-content: center;
-  color: rgba(255,255,255,0.4); flex-shrink: 0;
-  transition: color 0.2s, border-color 0.2s, background 0.2s;
+@keyframes border-chase {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to   { transform: translate(-50%, -50%) rotate(360deg); }
 }
 
-.card-icon--active { color: #ffffff; border-color: rgba(255,255,255,0.2); background: #222; }
+.card-icon-ri {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255,255,255,0.6);
+  position: relative;
+  z-index: 2;
+  flex-shrink: 0;
+}
+
+.feature-card--active .card-icon-ri {
+  color: #ffffff;
+}
 
 .card-label {
   font-size: 0.88rem; font-weight: 600;
   color: rgba(255,255,255,0.6); text-align: left;
+  position: relative;
+  z-index: 2;
 }
 
 .feature-card--active .card-label { color: #ffffff; }
@@ -591,4 +644,37 @@ onMounted(() => {
 .tab-fade-leave-active { transition: opacity 0.15s ease, transform 0.15s ease; }
 .tab-fade-enter-from  { opacity: 0; transform: translateY(8px); }
 .tab-fade-leave-to    { opacity: 0; transform: translateY(-4px); }
+
+@media (max-width: 767px) {
+  .control-section  { padding: 5rem 1.25rem 0; }
+  .control-heading  { font-size: clamp(1.9rem, 7vw, 2.8rem); }
+  .control-sub br   { display: none; }
+  .control-icon     { width: 110px; height: 110px; border-radius: 26px; }
+
+  /* Stack tab cards to 1 column */
+  .feature-cards { grid-template-columns: 1fr; gap: 0.5rem; }
+  .feature-card  { height: 56px; padding: 0.85rem 1rem; }
+
+  /* Hide sidebar — content takes full width */
+  .box-sidebar  { display: none; }
+  .box-body     { flex-direction: column; }
+  .box-main     { padding: 1rem; min-height: 280px; }
+
+  /* Analytics stats: 4 cols → 2 cols */
+  .analytics-stats { grid-template-columns: repeat(2, 1fr); }
+
+  /* Table: hide less-important columns */
+  .table-head,
+  .table-row {
+    grid-template-columns: 2fr 1fr 1fr;
+  }
+  .table-head span:nth-child(3),
+  .table-head span:nth-child(5),
+  .table-row  span:nth-child(3),
+  .table-row  span:nth-child(5) { display: none; }
+
+  /* Box header */
+  .box-nav { display: none; }
+  .box-header { padding: 0.6rem 1rem; }
+}
 </style>

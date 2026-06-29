@@ -4,10 +4,10 @@
 
       <!-- Heading — left aligned -->
       <div ref="headingRef" class="stats-header">
-        <h2 class="stats-heading">Go beyond trading</h2>
+        <h2 class="stats-heading">Go beyond banking</h2>
         <p class="stats-sub">
-          Monitor and control your portfolio in a simple and intuitive way.<br />
-          Straightforward analytics and reporting tools that help you trade smarter.
+          Monitor and control your finances in a simple and intuitive way.<br />
+          Straightforward analytics and reporting tools that help you manage smarter.
         </p>
       </div>
 
@@ -75,13 +75,13 @@
               <div class="metric-rows">
                 <div class="metric-row">
                   <span class="metric-dot metric-dot--white" />
-                  <span class="metric-name">Profit trades</span>
+                  <span class="metric-name">Successful payments</span>
                   <span class="metric-num">3,204</span>
                 </div>
                 <div class="divider-line" />
                 <div class="metric-row">
                   <span class="metric-dot metric-dot--dim" />
-                  <span class="metric-name">Loss trades</span>
+                  <span class="metric-name">Failed payments</span>
                   <span class="metric-num">480</span>
                 </div>
               </div>
@@ -132,9 +132,9 @@
             <line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/>
             <line x1="6" y1="20" x2="6" y2="14"/><polyline points="1 20 23 20"/>
           </svg>
-          <h3 class="feature-title">Trade analytics</h3>
+          <h3 class="feature-title">Financial analytics</h3>
           <p class="feature-desc">
-            Unlock powerful insights and understand exactly how your trades are performing. Identify patterns and optimize your strategy.
+            Unlock powerful insights and understand exactly how your finances are performing. Identify patterns and optimize your strategy.
           </p>
           <a href="#" class="feature-link">Learn more</a>
         </div>
@@ -483,5 +483,32 @@ onMounted(() => {
 
 .feature-link:hover {
   opacity: 0.65;
+}
+
+@media (max-width: 767px) {
+  .stats-section  { padding: 5rem 1.25rem 3rem; }
+  .stats-heading  { font-size: clamp(1.9rem, 7vw, 2.6rem); }
+  .stats-sub br   { display: none; }
+
+  /* Stack both cards */
+  .cards-row { grid-template-columns: 1fr; }
+
+  /* Stats numbers: 4 cols → 2 cols */
+  .stats-row { grid-template-columns: repeat(2, 1fr); }
+
+  /* Right card: metric columns side-by-side inside card */
+  .right-card-body { grid-template-columns: 1fr auto 1fr; }
+  .metric-big      { font-size: 2.2rem; }
+  .metric-col      { padding: 1.1rem 1rem; }
+  .metric-rows--spaced { margin-top: 1.5rem; }
+
+  /* Features: 2-col → 1-col */
+  .features-row { grid-template-columns: 1fr; gap: 2rem; }
+}
+
+@media (max-width: 479px) {
+  /* Very small phones: metric columns stack */
+  .right-card-body { grid-template-columns: 1fr; }
+  .col-divider     { width: 100%; height: 1px; align-self: auto; }
 }
 </style>

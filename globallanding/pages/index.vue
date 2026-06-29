@@ -9,6 +9,7 @@
     <QuoteSection />
     <ControlSection />
     <TestimonialsSection />
+    <PreFooterCta />
   </div>
 </template>
 
