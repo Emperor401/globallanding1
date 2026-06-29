@@ -136,7 +136,7 @@ const handleSubmit = async () => {
   const result = login(form.email.trim(), form.password)
   loading.value = false
   if (!result.success) { error.value = result.error || 'Something went wrong.'; return }
-  router.push('/dashboard')
+  router.push('/')
 }
 </script>
 

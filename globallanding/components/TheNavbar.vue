@@ -40,8 +40,32 @@
 
       <!-- Actions -->
       <div class="nav-actions">
-        <NuxtLink to="/login" class="btn-login">Log in</NuxtLink>
-        <NuxtLink to="/signup" class="btn-get-started">Get started</NuxtLink>
+        <template v-if="user">
+          <div class="profile-wrap" @mouseenter="profileOpen = true" @mouseleave="profileOpen = false">
+            <button class="profile-btn">
+              <span class="profile-initials">{{ initials }}</span>
+            </button>
+            <Transition name="dropdown">
+              <div v-if="profileOpen" class="profile-dropdown">
+                <div class="profile-info">
+                  <span class="profile-name">{{ user.name }}</span>
+                  <span class="profile-email">{{ user.email }}</span>
+                </div>
+                <div class="profile-divider" />
+                <button class="profile-logout" @click="handleLogout">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/>
+                  </svg>
+                  Log out
+                </button>
+              </div>
+            </Transition>
+          </div>
+        </template>
+        <template v-else>
+          <NuxtLink to="/login" class="btn-login">Log in</NuxtLink>
+          <NuxtLink to="/signup" class="btn-get-started">Get started</NuxtLink>
+        </template>
       </div>
 
     </div>
@@ -214,8 +238,32 @@
 </template>
 
 <script setup lang="ts">
-const navbar = ref<HTMLElement | null>(null)
+const navbar        = ref<HTMLElement | null>(null)
 const activeDropdown = ref<string | null>(null)
+const profileOpen   = ref(false)
+
+const { getSession, logout } = useAuth()
+const router = useRouter()
+const route  = useRoute()
+
+const user = ref<{ name: string; email: string } | null>(null)
+
+const refreshUser = () => { user.value = getSession() }
+
+onMounted(refreshUser)
+watch(() => route.path, refreshUser)
+
+const initials = computed(() => {
+  if (!user.value?.name) return 'U'
+  return user.value.name.split(' ').map((w: string) => w[0]).join('').toUpperCase().slice(0, 2)
+})
+
+const handleLogout = () => {
+  logout()
+  user.value = null
+  profileOpen.value = false
+  router.push('/')
+}
 
 const navItems = [
   { label: 'Features', hasDropdown: true },
@@ -655,5 +703,100 @@ onMounted(() => {
 .dropdown-leave-to {
   opacity: 0;
   transform: translateX(-50%) translateY(-4px);
+}
+
+/* Profile avatar */
+.profile-wrap {
+  position: relative;
+}
+
+.profile-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #1a1a1a;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.profile-btn:hover {
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+.profile-initials {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.3px;
+}
+
+/* Profile dropdown */
+.profile-dropdown {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  min-width: 200px;
+  background: rgba(14, 14, 14, 0.97);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 0.5rem;
+  z-index: 99;
+}
+
+.profile-info {
+  padding: 0.6rem 0.75rem 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.profile-name {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.profile-email {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.35);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 180px;
+}
+
+.profile-divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.07);
+  margin: 0.25rem 0;
+}
+
+.profile-logout {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.5rem 0.75rem;
+  background: transparent;
+  border: none;
+  border-radius: 7px;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.82rem;
+  font-weight: 500;
+  font-family: 'Urbanist', sans-serif;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+  text-align: left;
+}
+
+.profile-logout:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: #ffffff;
 }
 </style>
