@@ -5,7 +5,6 @@
     <TradingTerminal />
     <AnalysisSection />
     <StatsSection />
-    <CtaSection />
     <QuoteSection />
     <ControlSection />
     <TestimonialsSection />

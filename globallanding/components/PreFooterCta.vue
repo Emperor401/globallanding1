@@ -137,20 +137,20 @@ onMounted(() => {
   align-items: center;
   gap: 0.4rem;
   padding: 0.65rem 1.4rem;
-  background: #1a1a1a;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: #c2410c;
+  border: 1px solid transparent;
   border-radius: 10px;
   color: #ffffff;
   font-size: 0.9rem;
   font-weight: 600;
   font-family: 'Urbanist', sans-serif;
   text-decoration: none;
-  transition: background 0.2s, border-color 0.2s;
+  transition: background 0.2s, transform 0.15s;
 }
 
 .pf-btn-primary:hover {
-  background: #252525;
-  border-color: rgba(255, 255, 255, 0.22);
+  background: #9a3412;
+  transform: translateY(-1px);
 }
 
 .pf-btn-ghost {
@@ -167,7 +167,7 @@ onMounted(() => {
 }
 
 .pf-btn-ghost:hover {
-  color: rgba(255, 255, 255, 0.85);
+  color: #c2410c;
 }
 
 @media (max-width: 767px) {

@@ -27,93 +27,107 @@
         Build your financial reports and share insights with your team.
       </p>
 
-      <!-- Outer big box -->
+      <!-- Dashboard card -->
       <div ref="cardRef" class="outer-card">
-
-        <!-- Top gradient accent line -->
         <div class="accent-line" />
 
-        <!-- Outer toolbar -->
-        <div class="outer-toolbar">
-          <button class="toolbar-btn">
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="14" y2="12"/><line x1="4" y1="18" x2="18" y2="18"/>
-            </svg>
-            Filters
-          </button>
-          <span class="toolbar-title">BTC / USDT Weekly Report</span>
-          <div class="toolbar-right">
-            <span class="toolbar-time">
-              <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
-              </svg>
-              just now
-            </span>
-            <button class="toolbar-action-btn">Preview</button>
-            <button class="toolbar-action-btn toolbar-action-btn--primary">Export</button>
+        <!-- Top bar -->
+        <div class="db-topbar">
+          <div class="db-topbar-left">
+            <div class="db-brand-icon">G</div>
+            <span class="db-brand-name">Globalgle</span>
+            <div class="db-brand-toggle">
+              <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+            </div>
+          </div>
+          <div class="db-topbar-center">
+            <span class="db-breadcrumb">Websites <span class="db-bc-sep">/</span> <strong>Monitor your web properties</strong></span>
+          </div>
+          <div class="db-topbar-right">
+            <div class="db-search">
+              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              Search or type a command.
+              <span class="db-kbd">⌘ Space</span>
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1.8"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>
+            <div class="db-avatar">D</div>
+            <div class="db-user">
+              <span class="db-user-name">Daniel</span>
+              <span class="db-user-email">globalgle@gmail.com</span>
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="2"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg>
           </div>
         </div>
 
-        <!-- Inner floating card -->
-        <div class="inner-card">
+        <!-- Body -->
+        <div class="db-body">
 
-          <!-- Fields -->
-          <div class="inner-fields">
-            <div class="inner-field">
-              <span class="field-key">Pair</span>
-              <span class="field-val">BTC / USDT</span>
+          <!-- Sidebar -->
+          <aside class="db-sidebar">
+            <p class="db-sb-label">GO MENU</p>
+            <div class="db-sb-item">
+              <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              Dashboard
             </div>
-            <div class="inner-field">
-              <span class="field-key">Market</span>
-              <div class="field-badge">
-                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
-                </svg>
-                Spot Market
+            <p class="db-sb-label">TOOLS</p>
+            <div class="db-sb-item">
+              <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              Mailing
+            </div>
+            <div class="db-sb-item db-sb-item--active">
+              <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+              Websites
+            </div>
+            <div class="db-sb-item db-sb-item--tag">
+              <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+              Generator <span class="db-tag">TOOLS</span>
+            </div>
+            <div class="db-sb-item db-sb-item--tag">
+              <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+              Digital <span class="db-tag">TOOLS</span>
+            </div>
+            <p class="db-sb-label">SYSTEM</p>
+            <div class="db-sb-item">
+              <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+              My Wallet <span class="db-count">₦0</span>
+            </div>
+            <div class="db-sb-item">
+              <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              Billing &amp; Plans
+            </div>
+            <div class="db-sb-item">
+              <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
+              Tutorials
+            </div>
+          </aside>
+
+          <!-- Main -->
+          <div class="db-main">
+            <h3 class="db-title">Websites</h3>
+            <p class="db-subtitle">Launch and manage the sites you offer your own customers.</p>
+
+            <div class="db-cards-grid">
+              <div class="db-card" v-for="s in siteTools" :key="s.name">
+                <div class="db-card-icon">
+                  <span v-html="s.icon" />
+                </div>
+                <p class="db-card-name">{{ s.name }}</p>
+                <p class="db-card-desc">{{ s.desc }}</p>
+                <span class="db-card-badge" :style="{ background: s.badgeBg, color: s.badgeColor }">{{ s.badge }}</span>
               </div>
             </div>
-            <div class="inner-field">
-              <span class="field-key">Timeframe</span>
-              <span class="field-val field-val--bold">7 Days</span>
-            </div>
-          </div>
 
-          <!-- Banner -->
-          <div class="inner-banner">
-            <div class="banner-chart">
-              <svg viewBox="0 0 400 180" fill="none" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
-                <!-- Grid -->
-                <line x1="0" y1="45" x2="400" y2="45" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-                <line x1="0" y1="90" x2="400" y2="90" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-                <line x1="0" y1="135" x2="400" y2="135" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-                <line x1="80" y1="0" x2="80" y2="180" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-                <line x1="160" y1="0" x2="160" y2="180" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-                <line x1="240" y1="0" x2="240" y2="180" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-                <line x1="320" y1="0" x2="320" y2="180" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-                <!-- Chart line -->
-                <polyline points="0,150 50,130 100,140 150,100 200,115 250,70 300,85 350,45 400,30"
-                  stroke="rgba(255,255,255,0.2)" stroke-width="2" fill="none" stroke-linecap="round"/>
-                <polyline points="0,165 50,155 100,158 150,135 200,142 250,110 300,120 350,85 400,70"
-                  stroke="rgba(255,255,255,0.07)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-              </svg>
-            </div>
-            <!-- Play button -->
-            <div class="banner-play">
-              <div class="play-btn">
-                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
-                  <polygon points="5 3 19 12 5 21 5 3"/>
-                </svg>
+            <div class="db-stats-row">
+              <div class="db-stat" v-for="st in siteStats" :key="st.value">
+                <div class="db-stat-icon" :style="{ background: st.iconBg }">
+                  <span v-html="st.icon" />
+                </div>
+                <span class="db-stat-value" :style="{ color: st.color }">{{ st.value }}</span>
               </div>
             </div>
-          </div>
-
-          <!-- White content area -->
-          <div class="inner-content">
-            <p class="content-placeholder">Press '/' for analysis tools</p>
           </div>
 
         </div>
-
       </div>
 
     </div>
@@ -128,6 +142,20 @@ const subRef = ref<HTMLElement | null>(null)
 const cardRef = ref<HTMLElement | null>(null)
 
 const { $gsap } = useNuxtApp()
+
+const siteTools = [
+  { name: 'Support Pages',  desc: 'Create a branded help & support page.',        badge: 'Ready',   badgeBg: 'rgba(20,184,166,0.15)',  badgeColor: '#2dd4bf', icon: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c2410c" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>` },
+  { name: 'Online Banking', desc: 'Spin up your own online banking site.',         badge: 'Popular', badgeBg: 'rgba(59,130,246,0.15)',  badgeColor: '#60a5fa', icon: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c2410c" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>` },
+  { name: 'Broker',         desc: 'Launch your own trading / broker platform.',   badge: 'New',     badgeBg: 'rgba(6,182,212,0.15)',   badgeColor: '#22d3ee', icon: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c2410c" stroke-width="1.8"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>` },
+  { name: 'Tracking Pages', desc: 'Create package tracking pages.',                badge: 'Beta',    badgeBg: 'rgba(168,85,247,0.15)', badgeColor: '#c084fc', icon: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c2410c" stroke-width="1.8"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>` },
+]
+
+const siteStats = [
+  { value: '3',     color: '#c2410c', iconBg: 'rgba(194,65,12,0.12)',  icon: `<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#c2410c" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>` },
+  { value: '3',     color: '#60a5fa', iconBg: 'rgba(59,130,246,0.12)', icon: `<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>` },
+  { value: '0',     color: '#fbbf24', iconBg: 'rgba(251,191,36,0.12)', icon: `<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>` },
+  { value: '24.3K', color: '#c084fc', iconBg: 'rgba(168,85,247,0.12)', icon: `<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#c084fc" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>` },
+]
 
 onMounted(() => {
   const els = [iconRef.value, headingRef.value, subRef.value]
@@ -218,241 +246,161 @@ onMounted(() => {
   max-width: 560px;
 }
 
-/* ── Outer big box ── */
+/* ── Outer card ── */
 .outer-card {
-  width: 100%;
-  margin-top: 1.5rem;
-  background: #111111;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  border-left: 1px solid rgba(255, 255, 255, 0.08);
-  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  width: 100%; margin-top: 1.5rem;
+  background: #0d0d0d;
+  border: 1px solid rgba(255,255,255,0.1);
   border-bottom: none;
   border-radius: 18px 18px 0 0;
   overflow: hidden;
-  padding-bottom: 1.5rem;
+  position: relative;
+}
+.outer-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 120px;
+  background: linear-gradient(to bottom, transparent, #0a0a0a);
+  pointer-events: none;
+  z-index: 10;
 }
 
 .accent-line {
   height: 2px;
-  background: linear-gradient(90deg, transparent 5%, rgba(168,85,247,0.7) 35%, rgba(6,182,212,0.7) 65%, transparent 95%);
+  background: linear-gradient(90deg, transparent 5%, rgba(124,45,18,0.8) 25%, rgba(194,65,12,0.9) 50%, rgba(124,45,18,0.8) 75%, transparent 95%);
 }
 
-/* Outer toolbar */
-.outer-toolbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.85rem 1.25rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-  gap: 1rem;
-}
-
-.toolbar-btn {
-  display: flex;
-  align-items: center;
-  gap: 0.45rem;
-  padding: 0.4rem 0.85rem;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 8px;
-  color: rgba(255,255,255,0.6);
-  font-size: 0.8rem;
-  font-weight: 500;
-  font-family: 'Urbanist', sans-serif;
-  cursor: pointer;
-  white-space: nowrap;
-  transition: background 0.2s, color 0.2s;
-}
-
-.toolbar-btn:hover {
-  background: rgba(255,255,255,0.08);
-  color: #ffffff;
-}
-
-.toolbar-title {
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: rgba(255,255,255,0.5);
-  flex: 1;
-  text-align: center;
-}
-
-.toolbar-right {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-}
-
-.toolbar-time {
-  display: flex;
-  align-items: center;
-  gap: 0.35rem;
-  font-size: 0.78rem;
-  color: rgba(255,255,255,0.3);
-  white-space: nowrap;
-}
-
-.toolbar-action-btn {
-  padding: 0.38rem 0.85rem;
-  background: transparent;
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 7px;
-  color: rgba(255,255,255,0.6);
-  font-size: 0.8rem;
-  font-weight: 500;
-  font-family: 'Urbanist', sans-serif;
-  cursor: pointer;
-  transition: all 0.2s;
-  white-space: nowrap;
-}
-
-.toolbar-action-btn:hover {
-  background: rgba(255,255,255,0.06);
-  color: #ffffff;
-}
-
-.toolbar-action-btn--primary {
-  background: #ffffff;
-  border-color: #ffffff;
-  color: #0a0a0a;
-  font-weight: 600;
-}
-
-.toolbar-action-btn--primary:hover {
-  background: #e5e5e5;
-}
-
-/* ── Inner floating card ── */
-.inner-card {
-  margin: 1.5rem;
-  background: #0d0d0d;
-  border: 1px solid rgba(255, 255, 255, 0.07);
-  border-radius: 12px;
-  overflow: hidden;
-}
-
-/* Fields */
-.inner-fields {
+/* ── Top bar ── */
+.db-topbar {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0.65rem 1.2rem; gap: 1rem;
   border-bottom: 1px solid rgba(255,255,255,0.06);
+  background: #0a0a0a;
+}
+.db-topbar-left  { display: flex; align-items: center; gap: 0.55rem; flex-shrink: 0; }
+.db-brand-icon {
+  width: 28px; height: 28px; border-radius: 50%;
+  background: #fff; color: #000; font-size: 0.75rem; font-weight: 800;
+  display: flex; align-items: center; justify-content: center;
+}
+.db-brand-name { font-size: 0.82rem; font-weight: 700; color: #fff; }
+.db-brand-toggle {
+  width: 22px; height: 22px; border-radius: 6px;
+  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.08);
+  display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.4);
+}
+.db-topbar-center { flex: 1; display: flex; justify-content: center; }
+.db-breadcrumb    { font-size: 0.72rem; color: rgba(255,255,255,0.35); }
+.db-breadcrumb strong { color: rgba(255,255,255,0.75); font-weight: 600; }
+.db-bc-sep { margin: 0 0.3rem; }
+.db-topbar-right { display: flex; align-items: center; gap: 0.7rem; flex-shrink: 0; }
+.db-search {
+  display: flex; align-items: center; gap: 0.45rem; padding: 0.3rem 0.65rem;
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 7px; font-size: 0.68rem; color: rgba(255,255,255,0.3);
+}
+.db-kbd {
+  padding: 0.05rem 0.3rem; background: rgba(255,255,255,0.07);
+  border-radius: 4px; font-size: 0.6rem; color: rgba(255,255,255,0.3);
+}
+.db-avatar {
+  width: 26px; height: 26px; border-radius: 50%;
+  background: #c2410c; display: flex; align-items: center; justify-content: center;
+  font-size: 0.7rem; font-weight: 700; color: #fff;
+}
+.db-user { display: flex; flex-direction: column; }
+.db-user-name  { font-size: 0.68rem; font-weight: 600; color: #fff; line-height: 1.2; }
+.db-user-email { font-size: 0.6rem; color: rgba(255,255,255,0.35); line-height: 1.2; }
+
+/* ── Body ── */
+.db-body { display: flex; min-height: 400px; }
+
+/* ── Sidebar ── */
+.db-sidebar {
+  width: 175px; flex-shrink: 0; padding: 1rem 0.75rem;
+  border-right: 1px solid rgba(255,255,255,0.05);
+  display: flex; flex-direction: column; gap: 0.15rem;
+}
+.db-sb-label {
+  font-size: 0.58rem; font-weight: 600; letter-spacing: 0.6px;
+  color: rgba(255,255,255,0.22); text-transform: uppercase;
+  margin: 0.65rem 0 0.3rem 0.3rem;
+}
+.db-sb-item {
+  display: flex; align-items: center; gap: 0.5rem;
+  padding: 0.38rem 0.55rem; border-radius: 7px;
+  font-size: 0.74rem; color: rgba(255,255,255,0.45); cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+.db-sb-item:hover { background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.75); }
+.db-sb-item--active { background: rgba(255,255,255,0.08); color: #fff; font-weight: 600; }
+.db-sb-item--tag { justify-content: flex-start; }
+.db-tag {
+  margin-left: auto; font-size: 0.55rem; font-weight: 600;
+  padding: 0.1rem 0.35rem; border-radius: 4px;
+  background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.4);
+}
+.db-count {
+  margin-left: auto; font-size: 0.6rem; padding: 0.1rem 0.35rem;
+  border-radius: 4px; background: rgba(255,255,255,0.07); color: rgba(255,255,255,0.35);
 }
 
-.inner-field {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  padding: 0.7rem 1.25rem;
-  border-bottom: 1px solid rgba(255,255,255,0.04);
+/* ── Main ── */
+.db-main { flex: 1; padding: 1.4rem 1.5rem; overflow: hidden; }
+.db-title    { font-size: 1.3rem; font-weight: 700; color: #fff; margin: 0 0 0.3rem; text-align: left; }
+.db-subtitle { font-size: 0.78rem; color: rgba(255,255,255,0.38); margin: 0 0 1.2rem; text-align: left; }
+
+/* ── Cards ── */
+.db-cards-grid {
+  display: grid; grid-template-columns: repeat(4,1fr);
+  gap: 0.7rem; margin-bottom: 1rem;
+}
+.db-card {
+  background: #111; border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 12px; padding: 1rem 0.9rem;
+  display: flex; flex-direction: column; gap: 0.45rem;
+  cursor: pointer; transition: background 0.15s, border-color 0.15s;
+}
+.db-card:hover { background: #161616; border-color: rgba(255,255,255,0.12); }
+.db-card-icon {
+  width: 40px; height: 40px; border-radius: 10px;
+  background: rgba(194,65,12,0.15); border: 1px solid rgba(194,65,12,0.25);
+  display: flex; align-items: center; justify-content: center;
+}
+.db-card-name  { font-size: 0.85rem; font-weight: 700; color: #fff; margin: 0; }
+.db-card-desc  { font-size: 0.68rem; color: rgba(255,255,255,0.38); margin: 0; line-height: 1.5; flex: 1; }
+.db-card-badge {
+  display: inline-block; font-size: 0.62rem; font-weight: 600;
+  padding: 0.18rem 0.55rem; border-radius: 999px; align-self: flex-start;
 }
 
-.inner-field:last-child {
-  border-bottom: none;
+/* ── Stats ── */
+.db-stats-row {
+  display: grid; grid-template-columns: repeat(4,1fr); gap: 0.7rem;
 }
-
-.field-key {
-  font-size: 0.8rem;
-  color: rgba(255,255,255,0.3);
-  min-width: 80px;
-  font-weight: 500;
+.db-stat {
+  background: #111; border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 10px; padding: 0.75rem 0.85rem;
+  display: flex; align-items: center; gap: 0.6rem;
 }
-
-.field-val {
-  font-size: 0.875rem;
-  color: rgba(255,255,255,0.65);
+.db-stat-icon {
+  width: 28px; height: 28px; border-radius: 7px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
 }
-
-.field-val--bold {
-  font-weight: 600;
-  color: #ffffff;
-}
-
-.field-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  padding: 0.25rem 0.7rem;
-  background: rgba(255,255,255,0.07);
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 999px;
-  font-size: 0.78rem;
-  color: rgba(255,255,255,0.75);
-  font-weight: 500;
-}
-
-/* Banner */
-.inner-banner {
-  position: relative;
-  height: 220px;
-  background: linear-gradient(135deg, #0c0c10 0%, #111118 100%);
-  border-bottom: 1px solid rgba(255,255,255,0.05);
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-}
-
-.banner-chart {
-  flex: 1;
-  height: 100%;
-  padding: 1rem 1.5rem;
-}
-
-.banner-play {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 180px;
-  flex-shrink: 0;
-}
-
-.play-btn {
-  width: 76px;
-  height: 76px;
-  background: radial-gradient(circle at 40% 35%, #2e2e2e, #111111);
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: rgba(255,255,255,0.85);
-  cursor: pointer;
-  transition: transform 0.2s;
-}
-
-.play-btn:hover {
-  transform: scale(1.06);
-}
-
-/* White content area */
-.inner-content {
-  background: #f9f9f9;
-  min-height: 180px;
-  padding: 1.5rem 1.75rem;
-}
-
-.content-placeholder {
-  font-size: 0.875rem;
-  color: #c0c0c0;
-  margin: 0;
-}
+.db-stat-value { font-size: 1rem; font-weight: 700; }
 
 @media (max-width: 767px) {
-  .analysis-section { padding: 5rem 1rem 0; }
-  .analysis-icon    { width: 120px; height: 120px; border-radius: 28px; }
-  .analysis-heading { font-size: clamp(1.8rem, 6vw, 2.4rem); }
-  .analysis-sub     { font-size: 0.9rem; }
-  .analysis-sub br  { display: none; }
-
-  .outer-toolbar {
-    flex-wrap: wrap;
-    gap: 0.6rem;
-    padding: 0.75rem 1rem;
-  }
-  .toolbar-title  { order: -1; flex: 0 0 100%; text-align: left; font-size: 0.8rem; }
-  .toolbar-time   { display: none; }
-
-  .inner-card    { margin: 1rem; }
-  .inner-banner  { height: 160px; }
-  .banner-play   { width: 100px; }
-  .play-btn      { width: 60px; height: 60px; }
-  .inner-content { min-height: 120px; padding: 1rem 1.25rem; }
+  .analysis-section  { padding: 5rem 1rem 0; }
+  .analysis-icon     { width: 120px; height: 120px; border-radius: 28px; }
+  .analysis-heading  { font-size: clamp(1.8rem, 6vw, 2.4rem); }
+  .analysis-sub      { font-size: 0.9rem; }
+  .analysis-sub br   { display: none; }
+  .db-topbar-center,
+  .db-topbar-right   { display: none; }
+  .db-sidebar        { display: none; }
+  .db-cards-grid     { grid-template-columns: 1fr 1fr; }
+  .db-stats-row      { grid-template-columns: 1fr 1fr; }
+  .db-main           { padding: 1rem; }
 }
 </style>

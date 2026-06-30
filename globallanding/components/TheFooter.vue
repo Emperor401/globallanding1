@@ -208,7 +208,7 @@ onMounted(() => {
 .footer-brand-text {
   display: block;
   font-family: 'Excon', sans-serif;
-  font-size: clamp(7rem, 16vw, 18rem);
+  font-size: clamp(5rem, 11vw, 12rem);
   font-weight: 900;
   letter-spacing: -4px;
   line-height: 0.88;

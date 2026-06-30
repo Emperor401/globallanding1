@@ -165,7 +165,7 @@ onMounted(() => {
   display: inline-flex;
   padding: 1.5px;
   border-radius: 999px;
-  background: linear-gradient(90deg, #a855f7 0%, #6366f1 25%, #0ea5e9 55%, #06b6d4 75%, #10b981 100%);
+  background: linear-gradient(90deg, #7c2d12 0%, #c2410c 35%, #f97316 65%, #c2410c 100%);
   text-decoration: none;
   transition: filter 0.25s ease, transform 0.2s ease;
   box-shadow: none;
@@ -221,8 +221,8 @@ onMounted(() => {
   display: inline-flex;
   align-items: center;
   padding: 0.7rem 1.5rem;
-  background: #ffffff;
-  color: #0a0a0a;
+  background: #c2410c;
+  color: #ffffff;
   font-size: 0.9rem;
   font-weight: 600;
   border-radius: 10px;
@@ -231,7 +231,7 @@ onMounted(() => {
 }
 
 .btn-primary:hover {
-  background: #e5e5e5;
+  background: #9a3412;
   transform: translateY(-1px);
 }
 
@@ -248,8 +248,8 @@ onMounted(() => {
 }
 
 .btn-ghost:hover {
-  color: #ffffff;
-  background: rgba(255, 255, 255, 0.05);
+  color: #c2410c;
+  background: rgba(249, 115, 22, 0.07);
 }
 
 /* Right — 3D cube video */

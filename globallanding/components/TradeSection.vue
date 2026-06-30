@@ -2,18 +2,31 @@
   <section class="trade-section">
     <div class="trade-inner">
 
-      <!-- Top app icon — video -->
-      <div ref="iconRef" class="trade-icon">
-        <video
-          class="trade-icon-video"
-          :src="iconVideo"
-          autoplay
-          loop
-          muted
-          playsinline
-          preload="auto"
-        />
-        <div class="trade-icon-glow" />
+      <!-- Icon scene: mail icon + flying cards -->
+      <div ref="sceneRef" class="icon-scene">
+        <!-- Bitcoin — flies left -->
+        <div ref="bitcoinRef" class="float-card float-card--left">
+          <img src="/bitcoin.png" alt="Bitcoin" class="float-img" />
+        </div>
+
+        <!-- Mail icon -->
+        <div ref="iconRef" class="trade-icon">
+          <video
+            class="trade-icon-video"
+            :src="iconVideo"
+            autoplay
+            loop
+            muted
+            playsinline
+            preload="auto"
+          />
+          <div class="trade-icon-glow" />
+        </div>
+
+        <!-- Dollar — flies right -->
+        <div ref="dollarRef" class="float-card float-card--right">
+          <img src="/dollar.png" alt="Dollar" class="float-img" />
+        </div>
       </div>
 
       <!-- Heading -->
@@ -42,8 +55,11 @@
 </template>
 
 <script setup lang="ts">
-const iconRef   = ref<HTMLElement | null>(null)
-const iconVideo = '/messagevid.mp4'
+const sceneRef    = ref<HTMLElement | null>(null)
+const iconRef     = ref<HTMLElement | null>(null)
+const bitcoinRef  = ref<HTMLElement | null>(null)
+const dollarRef   = ref<HTMLElement | null>(null)
+const iconVideo   = '/messagevid.mp4'
 const headingRef  = ref<HTMLElement | null>(null)
 const subtitleRef = ref<HTMLElement | null>(null)
 const coinsRef    = ref<HTMLElement | null>(null)
@@ -59,6 +75,40 @@ const coins = [
 const { $gsap } = useNuxtApp()
 
 onMounted(() => {
+  // Flying cards — scrub ties animation to scroll so it reverses on scroll up
+  if (bitcoinRef.value && sceneRef.value) {
+    $gsap.fromTo(bitcoinRef.value,
+      { x: 0, y: 0, scale: 0.25, opacity: 0, rotate: -8 },
+      {
+        x: -185, y: 30, scale: 1, opacity: 1, rotate: -6,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: sceneRef.value,
+          start: 'top 75%',
+          end: 'center 45%',
+          scrub: 1.5,
+        },
+      }
+    )
+  }
+
+  if (dollarRef.value && sceneRef.value) {
+    $gsap.fromTo(dollarRef.value,
+      { x: 0, y: 0, scale: 0.25, opacity: 0, rotate: 8 },
+      {
+        x: 185, y: 30, scale: 1, opacity: 1, rotate: 6,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: sceneRef.value,
+          start: 'top 75%',
+          end: 'center 45%',
+          scrub: 1.5,
+        },
+      }
+    )
+  }
+
+  // Existing entrance animations
   const els = [iconRef.value, headingRef.value, subtitleRef.value]
   els.forEach((el, i) => {
     if (!el) return
@@ -104,6 +154,44 @@ onMounted(() => {
   text-align: center;
 }
 
+/* Icon scene wrapper */
+.icon-scene {
+  position: relative;
+  width: 100%;
+  max-width: 560px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Floating image cards */
+.float-card {
+  position: absolute;
+  width: 110px;
+  height: 110px;
+  border-radius: 24px;
+  background: #111111;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255,255,255,0.04);
+  /* start centered behind the icon */
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  will-change: transform, opacity;
+}
+
+.float-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
 /* App icon */
 .trade-icon {
   width: 160px;
@@ -111,6 +199,7 @@ onMounted(() => {
   border-radius: 36px;
   overflow: hidden;
   position: relative;
+  z-index: 2;
   background: linear-gradient(160deg, #0e0e18 0%, #080810 100%);
   border: 1px solid rgba(255, 255, 255, 0.07);
   display: flex;
@@ -211,7 +300,9 @@ onMounted(() => {
 
 @media (max-width: 767px) {
   .trade-section  { padding: 5rem 1.5rem 3rem; }
+  .icon-scene     { height: 140px; }
   .trade-icon     { width: 120px; height: 120px; border-radius: 28px; }
+  .float-card     { width: 75px; height: 75px; border-radius: 16px; padding: 10px; }
   .trade-heading  { font-size: clamp(1.9rem, 7vw, 2.5rem); }
   .trade-sub      { font-size: 0.9rem; }
   .trade-sub br   { display: none; }

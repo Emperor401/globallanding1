@@ -4,8 +4,10 @@
 
       <!-- Logo -->
       <NuxtLink to="/" class="logo">
-        <span class="logo-box">G</span>
-        <span class="logo-text">lobalGle</span>
+        <div class="logo-img-wrap">
+          <img src="/logo.png" alt="GlobalGle" class="logo-img" />
+        </div>
+        <span class="logo-text">GlobalGle</span>
       </NuxtLink>
 
       <!-- Nav Links -->
@@ -451,11 +453,27 @@ onMounted(() => {
 .logo {
   display: flex;
   align-items: center;
+  gap: 0.5rem;
   text-decoration: none;
   flex-shrink: 0;
 }
 
-.logo-box,
+.logo-img-wrap {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+  border: 1px solid rgba(255,255,255,0.12);
+}
+
+.logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
 .logo-text {
   font-size: 1.25rem;
   font-weight: 800;
@@ -538,19 +556,18 @@ onMounted(() => {
 
 .btn-get-started {
   padding: 0.45rem 1.1rem;
-  background: #1a1a1a;
+  background: #c2410c;
   color: #ffffff;
   font-size: 0.875rem;
   font-weight: 500;
   text-decoration: none;
   border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  transition: background 0.2s ease, border-color 0.2s ease;
+  border: 1px solid transparent;
+  transition: background 0.2s ease;
 }
 
 .btn-get-started:hover {
-  background: #252525;
-  border-color: rgba(255, 255, 255, 0.22);
+  background: #9a3412;
 }
 
 /* Dropdown */
@@ -1083,15 +1100,15 @@ onMounted(() => {
   display: block;
   padding: 0.85rem 1.25rem;
   text-align: center;
-  background: #ffffff;
-  color: #0a0a0a;
+  background: #c2410c;
+  color: #ffffff;
   text-decoration: none;
   font-size: 0.9rem;
   font-weight: 700;
   border-radius: 10px;
   transition: background 0.2s;
 }
-.mobile-signup-btn:hover { background: #e5e5e5; }
+.mobile-signup-btn:hover { background: #9a3412; }
 
 .mobile-logout-btn {
   width: 100%;
