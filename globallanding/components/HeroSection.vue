@@ -1,11 +1,11 @@
 <template>
-  <section class="hero">
+  <section ref="heroSection" class="hero">
 
-    <!-- Background gradient -->
-    <div class="hero-bg" />
+    <!-- Ambient light — fades out on scroll via JS -->
+    <img ref="heroLight" src="/light.webp" class="hero-light" alt="" aria-hidden="true" />
 
-    <!-- Top-right glow light — clipped by hero overflow:hidden -->
-    <img src="/light.webp" class="hero-glow-light" alt="" aria-hidden="true" />
+
+
 
 <div class="hero-inner">
 
@@ -62,13 +62,27 @@
 </template>
 
 <script setup lang="ts">
+const heroSection = ref<HTMLElement | null>(null)
 const heroContent = ref<HTMLElement | null>(null)
 const heroBox     = ref<HTMLElement | null>(null)
+const heroLight   = ref<HTMLImageElement | null>(null)
 const cubeVideo   = '/hero-cube.mp4'
 
 const { $gsap } = useNuxtApp()
 
 onMounted(() => {
+  // Fade the light out as the user scrolls past the hero section
+  const onScroll = () => {
+    if (!heroSection.value || !heroLight.value) return
+    const heroHeight = heroSection.value.offsetHeight
+    const scrolled   = window.scrollY
+    // Start fading at 20% into the hero, fully gone by 65%
+    const progress   = (scrolled - heroHeight * 0.2) / (heroHeight * 0.45)
+    heroLight.value.style.opacity = String(Math.max(0, Math.min(1, 1 - progress)))
+  }
+  window.addEventListener('scroll', onScroll, { passive: true })
+  onUnmounted(() => window.removeEventListener('scroll', onScroll))
+
   if (heroContent.value) {
     $gsap.from(heroContent.value.children, {
       y: 20,
@@ -114,19 +128,24 @@ onMounted(() => {
 }
 
 
-.hero-bg { display: none; }
 
-.hero-glow-light {
+.hero-light {
   position: absolute;
-  top: -60px;
-  right: -40px;
-  width: 700px;
+  top: -120px;
+  right: -120px;
+  width: 900px;
   height: auto;
   pointer-events: none;
-  z-index: 3;
+  z-index: 4;
   mix-blend-mode: screen;
   user-select: none;
+  will-change: opacity;
+  filter: brightness(2.2) saturate(1.4);
+  opacity: 1;
 }
+
+
+
 
 .hero-inner {
   position: relative;
@@ -259,6 +278,7 @@ onMounted(() => {
   flex-direction: column;
   align-items: center;
   pointer-events: none;
+  z-index: 3;
 }
 
 .cube-wrap {
@@ -306,12 +326,7 @@ onMounted(() => {
     background: #000000;
   }
 
-  /* Remove gradient overlays so the background is pure black,
-     matching the video's black and making the cube look native */
-  .hero-bg,
-  .hero-bg::after { display: none; }
-
-  .hero-inner {
+.hero-inner {
     flex-direction: column;
     align-items: center;
     text-align: center;

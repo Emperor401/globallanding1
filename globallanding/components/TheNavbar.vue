@@ -1,6 +1,5 @@
 <template>
   <header ref="navbar" class="navbar" @mouseleave="closeDropdown">
-    <img v-if="route.path === '/'" src="/light.webp" class="navbar-light" alt="" aria-hidden="true" />
     <div class="navbar-inner">
 
       <!-- Logo -->

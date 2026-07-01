@@ -51,9 +51,9 @@ const groups = [
   {
     title: 'Getting started',
     items: [
-      { q: 'How do I create an account?',      a: 'Visit the sign-up page, enter your email address and a strong password, then verify your email. Your account will be ready in seconds.' },
-      { q: 'I forgot my password.',             a: 'Click "Forgot password" on the login page. We\'ll send a reset link to your registered email address — check your spam folder if it doesn\'t arrive within a minute.' },
-      { q: 'Can I change my email address?',   a: 'Yes. Go to Account Settings → Profile and enter your new email. A confirmation link will be sent to the new address before the change takes effect.' },
+      { q: 'How do I create an account?',    a: 'Visit the sign-up page, enter your email address and a strong password, then verify your email. Your account will be ready in seconds.' },
+      { q: 'I forgot my password.',           a: 'Click "Forgot password" on the login page. We\'ll send a reset link to your registered email address — check your spam folder if it doesn\'t arrive within a minute.' },
+      { q: 'Can I change my email address?', a: 'Yes. Go to Account Settings → Profile and enter your new email. A confirmation link will be sent to the new address before the change takes effect.' },
     ],
   },
   {
@@ -61,33 +61,6 @@ const groups = [
     items: [
       { q: 'How does two-factor authentication work?', a: 'When enabled, you\'ll be asked for a one-time code every time you log in. The code is sent to your linked Telegram account or authenticator app.' },
       { q: 'What if I lose access to my Telegram?',   a: 'Use one of your backup codes generated when you first enabled 2FA. If you no longer have them, contact support with your identity documents to recover access.' },
-      { q: 'How do I see who is signed in to my account?',  a: 'Go to Account Settings → Active Sessions. You\'ll see every device, browser, and location currently signed in.' },
-      { q: 'How do I sign out of every other device?',      a: 'In Account Settings → Active Sessions, click "Revoke all other sessions". All other devices will be signed out immediately.' },
-    ],
-  },
-  {
-    title: 'Wallet & funding',
-    items: [
-      { q: 'How do I top up my wallet?',              a: 'Navigate to the Wallet section, choose your preferred crypto provider, and follow the deposit instructions. Funds are credited once the transaction is confirmed on-chain.' },
-      { q: 'How long does a top-up take to confirm?', a: 'Most deposits confirm within 5–30 minutes depending on network congestion. Bitcoin may take up to an hour during peak times.' },
-      { q: 'Can I get a refund?',                     a: 'Crypto transactions are irreversible once confirmed. If you believe there was an error, contact support immediately and we\'ll investigate.' },
-    ],
-  },
-  {
-    title: 'Subscriptions & plans',
-    items: [
-      { q: 'What\'s included in each plan?',           a: 'Each plan page lists all included features. Higher tiers unlock advanced analytics, more wallet addresses, priority support, and custom branding tools.' },
-      { q: 'Can I change my plan?',                    a: 'Yes. Upgrade or downgrade any time from Account Settings → Subscription. Changes take effect on your next billing cycle.' },
-      { q: 'How do I keep my plan from expiring?',    a: 'Enable auto-renewal in Account Settings → Subscription and ensure your wallet has sufficient balance before your renewal date.' },
-      { q: 'What happens when my subscription expires?', a: 'Your account switches to the free tier. Your data is preserved for 30 days. Resubscribing restores full access immediately.' },
-    ],
-  },
-  {
-    title: 'Support',
-    items: [
-      { q: 'How do I get in touch?',             a: 'Use the live chat widget at the bottom-right of any page, or email us at support@globalgle.com. We typically respond within a few hours.' },
-      { q: 'I have an idea or a bug to report.', a: 'We love feedback! Use the in-app feedback button or open a ticket via the Help menu. Bug reports include automatic diagnostic info to speed things up.' },
-      { q: 'Are there video tutorials anywhere?', a: 'Yes — visit the Tutorials section inside your dashboard or our YouTube channel for step-by-step walkthroughs of every major feature.' },
     ],
   },
 ]

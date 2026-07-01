@@ -355,7 +355,7 @@ const cards = [
     icon: `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>`,
   },
   {
-    label: 'Secure authentication',
+    label: 'Wallet funding',
     icon: `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>`,
   },
 ]
@@ -677,8 +677,8 @@ onMounted(() => {
   margin-bottom: 1.1rem; gap: 1rem;
 }
 
-.wallet-title { font-size: 1.3rem; font-weight: 700; color: #ffffff; margin: 0 0 0.2rem; }
-.wallet-sub   { font-size: 0.75rem; color: rgba(255,255,255,0.4); margin: 0; max-width: 340px; line-height: 1.5; }
+.wallet-title { font-size: 1.3rem; font-weight: 700; color: #ffffff; margin: 0 0 0.2rem; text-align: left; }
+.wallet-sub   { font-size: 0.75rem; color: rgba(255,255,255,0.4); margin: 0; max-width: 340px; line-height: 1.5; text-align: left; }
 
 .wallet-actions { display: flex; align-items: center; gap: 0.6rem; flex-shrink: 0; }
 
@@ -779,7 +779,8 @@ onMounted(() => {
 
 /* ── Wallet Funding tab ── */
 .wf-back {
-  display: inline-flex; align-items: center; gap: 0.35rem;
+  display: flex; align-items: center; gap: 0.35rem;
+  width: fit-content;
   font-size: 0.72rem; color: rgba(255,255,255,0.4);
   margin-bottom: 0.85rem; cursor: pointer;
   transition: color 0.15s;
@@ -800,7 +801,7 @@ onMounted(() => {
 }
 
 .wf-title-row { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.25rem; }
-.wf-title { font-size: 1rem; font-weight: 700; color: #ffffff; margin: 0; }
+.wf-title { font-size: 1rem; font-weight: 700; color: #ffffff; margin: 0; text-align: left; }
 
 .wf-badge {
   font-size: 0.58rem; font-weight: 700; letter-spacing: 0.5px;
@@ -809,7 +810,7 @@ onMounted(() => {
   color: #c2410c;
 }
 
-.wf-sub { font-size: 0.72rem; color: rgba(255,255,255,0.38); margin: 0; line-height: 1.5; max-width: 340px; }
+.wf-sub { font-size: 0.72rem; color: rgba(255,255,255,0.38); margin: 0; line-height: 1.5; max-width: 340px; text-align: left; }
 
 .wf-history-btn {
   display: inline-flex; align-items: center; gap: 0.4rem;
@@ -976,17 +977,6 @@ onMounted(() => {
   .box-sidebar  { display: none; }
   .box-body     { flex-direction: column; }
   .box-main     { padding: 1rem; min-height: 280px; }
-
-  /* Analytics stats: 4 cols → 2 cols */
-  .analytics-stats { grid-template-columns: repeat(2, 1fr); }
-
-  /* Table: hide less-important columns */
-  .table-head,
-  .table-row { grid-template-columns: 2fr 1fr 1fr; }
-  .table-head span:nth-child(3),
-  .table-head span:nth-child(5),
-  .table-row  span:nth-child(3),
-  .table-row  span:nth-child(5) { display: none; }
 
   /* Box header */
   .box-nav { display: none; }
