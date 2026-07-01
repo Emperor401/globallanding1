@@ -1,5 +1,6 @@
 <template>
   <header ref="navbar" class="navbar" @mouseleave="closeDropdown">
+    <img v-if="route.path === '/'" src="/light.webp" class="navbar-light" alt="" aria-hidden="true" />
     <div class="navbar-inner">
 
       <!-- Logo -->
@@ -436,6 +437,19 @@ onMounted(() => {
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+
+.navbar-light {
+  position: absolute;
+  top: -30px;
+  right: -60px;
+  width: 500px;
+  height: auto;
+  pointer-events: none;
+  z-index: 0;
+  mix-blend-mode: screen;
+  user-select: none;
 }
 
 .navbar-inner {
@@ -991,6 +1005,15 @@ onMounted(() => {
   -webkit-backdrop-filter: blur(20px);
   z-index: 97;
   overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #c2410c transparent;
+}
+
+.mobile-menu::-webkit-scrollbar { width: 3px; }
+.mobile-menu::-webkit-scrollbar-track { background: transparent; }
+.mobile-menu::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #7c2d12, #c2410c, #f97316);
+  border-radius: 999px;
 }
 
 .mobile-inner {

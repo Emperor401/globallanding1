@@ -31,7 +31,10 @@
 
       <!-- Heading -->
       <h2 ref="headingRef" class="trade-heading">
-        Start banking <span class="gradient-text">this weekend</span>
+        Start banking
+        <span class="cycling-wrap">
+          <span class="cycling-word gradient-text" :class="wordState">{{ currentWord }}</span>
+        </span>
       </h2>
 
       <!-- Subtitle -->
@@ -64,6 +67,11 @@ const headingRef  = ref<HTMLElement | null>(null)
 const subtitleRef = ref<HTMLElement | null>(null)
 const coinsRef    = ref<HTMLElement | null>(null)
 
+const words = ['this morning', 'this afternoon', 'tonight', 'this weekend', 'right now', 'anytime', 'every day']
+let wordIndex = 0
+const currentWord = ref(words[0])
+const wordState = ref('visible')
+
 const base = 'https://cdn.jsdelivr.net/npm/cryptocurrency-icons@0.18.1/svg/color'
 
 const coins = [
@@ -75,12 +83,16 @@ const coins = [
 const { $gsap } = useNuxtApp()
 
 onMounted(() => {
+  const isMobile = window.innerWidth < 768
+  const floatX = isMobile ? 110 : 185
+  const floatY = isMobile ? 15 : 30
+
   // Flying cards — scrub ties animation to scroll so it reverses on scroll up
   if (bitcoinRef.value && sceneRef.value) {
     $gsap.fromTo(bitcoinRef.value,
       { x: 0, y: 0, scale: 0.25, opacity: 0, rotate: -8 },
       {
-        x: -185, y: 30, scale: 1, opacity: 1, rotate: -6,
+        x: -floatX, y: floatY, scale: 1, opacity: 1, rotate: -6,
         ease: 'power2.out',
         scrollTrigger: {
           trigger: sceneRef.value,
@@ -96,7 +108,7 @@ onMounted(() => {
     $gsap.fromTo(dollarRef.value,
       { x: 0, y: 0, scale: 0.25, opacity: 0, rotate: 8 },
       {
-        x: 185, y: 30, scale: 1, opacity: 1, rotate: 6,
+        x: floatX, y: floatY, scale: 1, opacity: 1, rotate: 6,
         ease: 'power2.out',
         scrollTrigger: {
           trigger: sceneRef.value,
@@ -135,6 +147,19 @@ onMounted(() => {
       delay: 0.2,
     })
   }
+
+  // Word cycling
+  const interval = setInterval(() => {
+    wordState.value = 'exit'
+    setTimeout(() => {
+      wordIndex = (wordIndex + 1) % words.length
+      currentWord.value = words[wordIndex]
+      wordState.value = 'enter'
+      setTimeout(() => { wordState.value = 'visible' }, 400)
+    }, 350)
+  }, 4000)
+
+  onUnmounted(() => clearInterval(interval))
 })
 </script>
 
@@ -171,14 +196,13 @@ onMounted(() => {
   width: 110px;
   height: 110px;
   border-radius: 24px;
-  background: #111111;
-  border: 1px solid rgba(255, 255, 255, 0.09);
+  background: transparent;
+  border: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 14px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255,255,255,0.04);
-  /* start centered behind the icon */
+  padding: 0;
+  box-shadow: none;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
@@ -187,8 +211,8 @@ onMounted(() => {
 }
 
 .float-img {
-  width: 100%;
-  height: 100%;
+  width: 160%;
+  height: 160%;
   object-fit: contain;
 }
 
@@ -227,6 +251,32 @@ onMounted(() => {
   border-radius: 0 0 36px 36px;
 }
 
+/* Cycling word */
+.cycling-wrap {
+  display: inline-block;
+  vertical-align: baseline;
+}
+
+.cycling-word {
+  display: inline-block;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.cycling-word.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.cycling-word.exit {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+.cycling-word.enter {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
 /* Heading */
 .trade-heading {
   font-size: clamp(2.2rem, 4vw, 3.2rem);
@@ -238,7 +288,7 @@ onMounted(() => {
 }
 
 .gradient-text {
-  background: linear-gradient(90deg, #a855f7, #06b6d4);
+  background: linear-gradient(90deg, #7c2d12, #c2410c, #f97316);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -300,9 +350,10 @@ onMounted(() => {
 
 @media (max-width: 767px) {
   .trade-section  { padding: 5rem 1.5rem 3rem; }
-  .icon-scene     { height: 140px; }
-  .trade-icon     { width: 120px; height: 120px; border-radius: 28px; }
-  .float-card     { width: 75px; height: 75px; border-radius: 16px; padding: 10px; }
+  .icon-scene     { height: 160px; max-width: 100%; }
+  .trade-icon     { width: 110px; height: 110px; border-radius: 26px; }
+  .float-card     { width: 70px; height: 70px; }
+  .float-img      { width: 140%; height: 140%; }
   .trade-heading  { font-size: clamp(1.9rem, 7vw, 2.5rem); }
   .trade-sub      { font-size: 0.9rem; }
   .trade-sub br   { display: none; }

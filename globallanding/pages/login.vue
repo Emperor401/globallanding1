@@ -7,7 +7,7 @@
     <div class="login-card">
 
       <NuxtLink to="/" class="logo-wrap">
-        <span class="logo-icon">G</span>
+        <img src="/logo.png" alt="GlobalGle" class="logo-img" />
       </NuxtLink>
 
       <h1 class="title">Log in to GlobalGle</h1>
@@ -26,12 +26,6 @@
             <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
           </svg>
           Continue with Google
-        </button>
-        <button class="oauth-btn" type="button" @click="oauthNotice">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
-          </svg>
-          Continue with GitHub
         </button>
       </div>
 
@@ -153,8 +147,8 @@ const handleSubmit = async () => {
 
 .login-card { position: relative; z-index: 10; width: 100%; max-width: 480px; display: flex; flex-direction: column; align-items: center; gap: 1rem; }
 
-.logo-wrap { width: 48px; height: 48px; background: #1a1a1a; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 0.25rem; text-decoration: none; }
-.logo-icon { font-size: 1.4rem; font-weight: 800; color: #fff; letter-spacing: -1px; }
+.logo-wrap { width: 52px; height: 52px; border-radius: 50%; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; margin-bottom: 0.25rem; text-decoration: none; flex-shrink: 0; }
+.logo-img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
 .title { font-size: 1.5rem; font-weight: 700; color: #fff; text-align: center; letter-spacing: -0.3px; margin: 0; }
 .subtitle { font-size: 0.875rem; color: rgba(255,255,255,0.5); text-align: center; margin: 0; }
@@ -162,13 +156,13 @@ const handleSubmit = async () => {
 .link { color: #fff; font-weight: 600; text-decoration: none; transition: opacity 0.2s; }
 .link:hover { opacity: 0.75; }
 
-.oauth-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; width: 100%; margin-top: 0.5rem; }
-.oauth-btn { display: flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.65rem 1rem; background: #161616; border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; color: rgba(255,255,255,0.85); font-size: 0.875rem; font-weight: 500; font-family: 'Urbanist', sans-serif; cursor: pointer; transition: background 0.2s, border-color 0.2s; white-space: nowrap; }
+.oauth-row { display: flex; justify-content: center; width: 100%; margin-top: 0.5rem; }
+.oauth-btn { min-width: 220px; display: flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.65rem 1rem; background: #161616; border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; color: rgba(255,255,255,0.85); font-size: 0.875rem; font-weight: 500; font-family: 'Urbanist', sans-serif; cursor: pointer; transition: background 0.2s, border-color 0.2s; white-space: nowrap; }
 .oauth-btn:hover { background: #1f1f1f; border-color: rgba(255,255,255,0.18); }
 
 .divider { display: flex; align-items: center; gap: 0.75rem; width: 100%; }
-.divider-line { flex: 1; height: 1px; background: rgba(255,255,255,0.08); }
-.divider-text { font-size: 0.8rem; color: rgba(255,255,255,0.35); }
+.divider-line { flex: 1; height: 1px; background: linear-gradient(90deg, transparent, rgba(194,65,12,0.6), rgba(249,115,22,0.8), rgba(194,65,12,0.6), transparent); }
+.divider-text { font-size: 0.8rem; color: rgba(255,255,255,0.45); }
 
 .alert { width: 100%; display: flex; align-items: center; gap: 0.5rem; padding: 0.7rem 1rem; border-radius: 10px; font-size: 0.82rem; font-weight: 500; }
 .alert--error { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,80,80,0.3); color: rgba(255,140,140,0.9); }

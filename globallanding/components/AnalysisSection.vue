@@ -34,7 +34,7 @@
         <!-- Top bar -->
         <div class="db-topbar">
           <div class="db-topbar-left">
-            <div class="db-brand-icon">G</div>
+            <div class="db-brand-icon"><img src="/logo.png" alt="GlobalGle" class="db-brand-logo" /></div>
             <span class="db-brand-name">Globalgle</span>
             <div class="db-brand-toggle">
               <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
@@ -279,9 +279,10 @@ onMounted(() => {
   background: #0a0a0a;
 }
 .db-topbar-left  { display: flex; align-items: center; gap: 0.55rem; flex-shrink: 0; }
+.db-brand-logo { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 50%; }
 .db-brand-icon {
   width: 28px; height: 28px; border-radius: 50%;
-  background: #fff; color: #000; font-size: 0.75rem; font-weight: 800;
+  overflow: hidden;
   display: flex; align-items: center; justify-content: center;
 }
 .db-brand-name { font-size: 0.82rem; font-weight: 700; color: #fff; }

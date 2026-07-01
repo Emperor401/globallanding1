@@ -46,7 +46,7 @@
         <!-- Top bar -->
         <div class="box-topbar">
           <div class="topbar-left">
-            <div class="brand-icon">G</div>
+            <div class="brand-icon"><img src="/logo.png" alt="GlobalGle" class="brand-logo-img" /></div>
             <span class="brand-name">GlobalGle</span>
             <span class="brand-badge">Pro</span>
             <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
@@ -252,7 +252,9 @@
                 <p class="wf-providers-label">SELECT A FUNDING PROVIDER</p>
                 <div class="wf-providers-grid">
                   <div class="wf-provider" v-for="p in fundingProviders" :key="p.name">
-                    <div class="wf-provider-logo" :style="{ background: p.color }">{{ p.initial }}</div>
+                    <div class="wf-provider-logo" :style="{ background: p.bg }">
+                      <img :src="p.logo" :alt="p.name" class="wf-provider-logo-img" />
+                    </div>
                     <div class="wf-provider-info">
                       <p class="wf-provider-name">{{ p.name }}</p>
                       <p class="wf-provider-coins">{{ p.coins }} coin{{ p.coins > 1 ? 's' : '' }} available</p>
@@ -289,7 +291,7 @@
                       <span class="cm-badge" :style="{ background: p.badgeColor }">{{ p.badge }}</span>
                     </div>
                     <div class="cm-logo-wrap" :style="{ background: p.logoBg }">
-                      <span class="cm-logo-letter" :style="{ color: p.logoColor }">{{ p.initial }}</span>
+                      <img :src="p.logo" :alt="p.name" class="cm-logo-img" />
                     </div>
                     <p class="cm-name">{{ p.name }}</p>
                     <p class="cm-tagline">{{ p.tagline }}</p>
@@ -325,22 +327,22 @@ const tabBreadcrumb = [
 ]
 
 const mailProviders = [
-  { name: 'Binance',        tagline: 'Binance Sets the Standard',         badge: 'GLOBAL',       badgeColor: '#c2410c', borderColor: '#c2410c', logoBg: '#1a1000', logoColor: '#f0b90b', initial: 'B' },
-  { name: 'Coinbase',       tagline: 'Coinbase, Accessible and Simple',   badge: 'GOLD',         badgeColor: '#3b82f6', borderColor: '#3b82f6', logoBg: '#001230', logoColor: '#0052ff', initial: 'C' },
-  { name: 'Kraken',         tagline: 'Kraken, Trusted by Pros',           badge: 'PRO',          badgeColor: '#a855f7', borderColor: '#a855f7', logoBg: '#12002a', logoColor: '#7c5cc7', initial: 'K' },
-  { name: 'Blockchain.com', tagline: 'Blockchain, the Original',          badge: 'PREMIUM',      badgeColor: '#06b6d4', borderColor: '#06b6d4', logoBg: '#001520', logoColor: '#ff2b5e', initial: 'B' },
-  { name: 'Bitcoin.com',    tagline: 'Bitcoin, Reimagined',               badge: 'PIONEER',      badgeColor: '#c2410c', borderColor: '#f59e0b', logoBg: '#1a0e00', logoColor: '#f7931a', initial: 'B' },
-  { name: 'ByBit',          tagline: 'Bybit, Speed and Precision',        badge: 'SPEED',        badgeColor: '#3b82f6', borderColor: '#c2410c', logoBg: '#111111', logoColor: '#ffffff', initial: 'B' },
-  { name: 'MetaMask',       tagline: 'MetaMask, the Gateway',             badge: 'PROFESSIONAL', badgeColor: '#c2410c', borderColor: '#9a3412', logoBg: '#1a0800', logoColor: '#f6851b', initial: 'M' },
-  { name: 'OKX',            tagline: 'OKX, Powerful. Secure. Global.',    badge: 'POWERHOUSE',   badgeColor: '#444444', borderColor: '#2a2a2a', logoBg: '#0d0d0d', logoColor: '#ffffff', initial: 'O' },
+  { name: 'Binance',        tagline: 'Binance Sets the Standard',         badge: 'GLOBAL',       badgeColor: '#c2410c', borderColor: '#c2410c', logoBg: '#181a20', logo: 'https://s2.coinmarketcap.com/static/img/exchanges/64x64/270.png' },
+  { name: 'Coinbase',       tagline: 'Coinbase, Accessible and Simple',   badge: 'GOLD',         badgeColor: '#3b82f6', borderColor: '#3b82f6', logoBg: '#0a1440', logo: 'https://s2.coinmarketcap.com/static/img/exchanges/64x64/89.png' },
+  { name: 'Kraken',         tagline: 'Kraken, Trusted by Pros',           badge: 'PRO',          badgeColor: '#a855f7', borderColor: '#a855f7', logoBg: '#12002a', logo: 'https://s2.coinmarketcap.com/static/img/exchanges/64x64/24.png' },
+  { name: 'Blockchain.com', tagline: 'Blockchain, the Original',          badge: 'PREMIUM',      badgeColor: '#06b6d4', borderColor: '#06b6d4', logoBg: '#001520', logo: 'https://s2.coinmarketcap.com/static/img/exchanges/64x64/362.png' },
+  { name: 'Bitcoin.com',    tagline: 'Bitcoin, Reimagined',               badge: 'PIONEER',      badgeColor: '#c2410c', borderColor: '#f59e0b', logoBg: '#1a0e00', logo: 'https://s2.coinmarketcap.com/static/img/coins/64x64/1.png' },
+  { name: 'ByBit',          tagline: 'Bybit, Speed and Precision',        badge: 'SPEED',        badgeColor: '#3b82f6', borderColor: '#c2410c', logoBg: '#0d0d12', logo: 'https://s2.coinmarketcap.com/static/img/exchanges/64x64/521.png' },
+  { name: 'MetaMask',       tagline: 'MetaMask, the Gateway',             badge: 'PROFESSIONAL', badgeColor: '#c2410c', borderColor: '#9a3412', logoBg: '#1a0800', logo: 'https://upload.wikimedia.org/wikipedia/commons/3/36/MetaMask_Fox.svg' },
+  { name: 'OKX',            tagline: 'OKX, Powerful. Secure. Global.',    badge: 'POWERHOUSE',   badgeColor: '#444444', borderColor: '#2a2a2a', logoBg: '#0d0d0d', logo: 'https://s2.coinmarketcap.com/static/img/exchanges/64x64/294.png' },
 ]
 
 const fundingProviders = [
-  { name: 'Binance Funding',  initial: 'B', color: '#f0b90b', coins: 2, tags: ['BTC', 'ETH'] },
-  { name: 'Trust Wallet F...', initial: 'T', color: '#3375bb', coins: 3, tags: ['BTC', 'ETH', 'BNB'] },
-  { name: 'Gate.io Fun...',   initial: 'G', color: '#2354e6', coins: 3, tags: ['BTC', 'ETH', 'USDT'] },
-  { name: 'Coinbase',         initial: 'C', color: '#0052ff', coins: 1, tags: ['BTC'] },
-  { name: 'Kucoin',           initial: 'K', color: '#00a651', coins: 2, tags: ['BTC', 'ETH'] },
+  { name: 'Binance Funding',   logo: 'https://s2.coinmarketcap.com/static/img/exchanges/64x64/270.png',  bg: '#181a20', coins: 2, tags: ['BTC', 'ETH'] },
+  { name: 'Trust Wallet',      logo: 'https://s2.coinmarketcap.com/static/img/coins/64x64/5964.png',     bg: '#0a0f2c', coins: 3, tags: ['BTC', 'ETH', 'BNB'] },
+  { name: 'Gate.io',           logo: 'https://s2.coinmarketcap.com/static/img/exchanges/64x64/302.png',  bg: '#0a1929', coins: 3, tags: ['BTC', 'ETH', 'USDT'] },
+  { name: 'Coinbase',          logo: 'https://s2.coinmarketcap.com/static/img/exchanges/64x64/89.png',   bg: '#0a1440', coins: 1, tags: ['BTC'] },
+  { name: 'KuCoin',            logo: 'https://s2.coinmarketcap.com/static/img/exchanges/64x64/311.png',  bg: '#0a1f0a', coins: 2, tags: ['BTC', 'ETH'] },
 ]
 
 const cards = [
@@ -570,9 +572,10 @@ onMounted(() => {
 
 .topbar-left { display: flex; align-items: center; gap: 0.45rem; flex-shrink: 0; }
 
+.brand-logo-img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 50%; }
 .brand-icon {
-  width: 22px; height: 22px; border-radius: 5px;
-  background: #222; border: 1px solid rgba(255,255,255,0.1);
+  width: 22px; height: 22px; border-radius: 50%;
+  overflow: hidden;
   display: flex; align-items: center; justify-content: center;
   font-size: 0.68rem; font-weight: 800; color: #fff;
 }
@@ -875,7 +878,11 @@ onMounted(() => {
 .wf-provider-logo {
   width: 30px; height: 30px; border-radius: 8px; flex-shrink: 0;
   display: flex; align-items: center; justify-content: center;
-  font-size: 0.75rem; font-weight: 800; color: #fff;
+  overflow: hidden;
+}
+
+.wf-provider-logo-img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
 }
 
 .wf-provider-info { flex: 1; min-width: 0; }
@@ -890,7 +897,7 @@ onMounted(() => {
 }
 
 /* ── Crypto Mails tab ── */
-.cm-back-row { margin-bottom: 0.6rem; }
+.cm-back-row { margin-bottom: 0.6rem; text-align: left; }
 .cm-back-btn {
   display: inline-flex; align-items: center; gap: 0.35rem;
   padding: 0.3rem 0.65rem;
@@ -901,7 +908,7 @@ onMounted(() => {
 }
 .cm-back-btn:hover { color: #fff; border-color: rgba(255,255,255,0.18); }
 
-.cm-heading-row { margin-bottom: 1rem; }
+.cm-heading-row { margin-bottom: 1rem; text-align: left; }
 .cm-title { font-size: 1.1rem; font-weight: 700; color: #ffffff; margin: 0 0 0.25rem; }
 .cm-sub   { font-size: 0.74rem; color: rgba(255,255,255,0.38); margin: 0; }
 
@@ -936,9 +943,10 @@ onMounted(() => {
   display: flex; align-items: center; justify-content: center;
   margin-top: 0.9rem;
   border: 1px solid rgba(255,255,255,0.07);
+  overflow: hidden;
 }
-.cm-logo-letter {
-  font-size: 1.3rem; font-weight: 800; line-height: 1;
+.cm-logo-img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
 }
 
 .cm-name    { font-size: 0.8rem; font-weight: 700; color: #ffffff; margin: 0; }
@@ -974,9 +982,7 @@ onMounted(() => {
 
   /* Table: hide less-important columns */
   .table-head,
-  .table-row {
-    grid-template-columns: 2fr 1fr 1fr;
-  }
+  .table-row { grid-template-columns: 2fr 1fr 1fr; }
   .table-head span:nth-child(3),
   .table-head span:nth-child(5),
   .table-row  span:nth-child(3),
@@ -985,5 +991,44 @@ onMounted(() => {
   /* Box header */
   .box-nav { display: none; }
   .box-header { padding: 0.6rem 1rem; }
+
+  /* ── Dashboard topbar mobile ── */
+  .box-topbar { padding: 0.55rem 0.85rem; gap: 0.5rem; }
+  .topbar-center { display: none; }
+  .topbar-email { display: none; }
+  .topbar-right > svg:last-child { display: none; }
+  .brand-badge { display: none; }
+  .brand-name { font-size: 0.78rem; }
+
+  /* ── Crypto Mails mobile ── */
+  .cm-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+
+  .cm-card {
+    padding: 1rem 0.75rem 0.85rem;
+    border-radius: 14px;
+    gap: 0.45rem;
+  }
+
+  .cm-logo-wrap {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    margin-top: 1rem;
+  }
+
+  .cm-name    { font-size: 0.85rem; }
+  .cm-tagline { font-size: 0.7rem; }
+  .cm-click   { display: none; }
+
+  .cm-badge {
+    font-size: 0.55rem;
+    padding: 0.14rem 0.5rem;
+  }
+
+  .cm-title { font-size: 1.05rem; }
+  .cm-sub   { font-size: 0.72rem; }
 }
 </style>

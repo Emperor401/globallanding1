@@ -4,7 +4,10 @@
     <!-- Background gradient -->
     <div class="hero-bg" />
 
-    <div class="hero-inner">
+    <!-- Top-right glow light — clipped by hero overflow:hidden -->
+    <img src="/light.webp" class="hero-glow-light" alt="" aria-hidden="true" />
+
+<div class="hero-inner">
 
       <!-- Left content -->
       <div ref="heroContent" class="hero-left">
@@ -21,13 +24,12 @@
 
         <!-- Heading -->
         <h1 class="hero-heading">
-          Bank Smarter.<br />Live Better.
+          Globalgle-All active. <br />tools One App.
         </h1>
 
         <!-- Subtitle -->
         <p class="hero-sub">
-          The smartest way to buy, sell and grow your crypto portfolio.<br />
-          Secure, fast and built for everyone.
+          Active business services, One App, Anywhere World Wide.when
         </p>
 
         <!-- Buttons -->
@@ -111,28 +113,19 @@ onMounted(() => {
   background: #000000;
 }
 
-/* Background gradient — matches inspo exactly */
-.hero-bg {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background:
-    radial-gradient(ellipse 70% 80% at 72% 40%, rgba(22, 22, 26, 0.85) 0%, transparent 65%),
-    radial-gradient(ellipse 40% 40% at 75% 20%, rgba(28, 28, 32, 0.4) 0%, transparent 55%),
-    radial-gradient(ellipse 50% 30% at 65% 90%, rgba(10, 10, 12, 0.9) 0%, transparent 60%);
-}
 
-/* Surface shadow line under the 3D object area */
-.hero-bg::after {
-  content: '';
+.hero-bg { display: none; }
+
+.hero-glow-light {
   position: absolute;
-  bottom: 18%;
-  left: 38%;
-  right: 0;
-  height: 120px;
-  background: radial-gradient(ellipse 60% 100% at 55% 100%, rgba(0,0,0,0.85) 0%, transparent 70%);
-  transform: skewY(-4deg);
+  top: -60px;
+  right: -40px;
+  width: 700px;
+  height: auto;
   pointer-events: none;
+  z-index: 3;
+  mix-blend-mode: screen;
+  user-select: none;
 }
 
 .hero-inner {
@@ -276,12 +269,15 @@ onMounted(() => {
   align-items: center;
 }
 
+
 .cube-video {
   width: 100%;
   height: auto;
   display: block;
   object-fit: contain;
   background: transparent;
+  position: relative;
+  z-index: 0;
 }
 
 /* Ground shadow beneath the cube */

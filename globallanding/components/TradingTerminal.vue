@@ -43,19 +43,32 @@ onMounted(() => {
 
 .terminal-img-wrap {
   width: 100%;
-  border-radius: 20px;
-  overflow: hidden;
+  border-radius: 20px 20px 0 0;
   border: 1.5px solid rgba(255, 255, 255, 0.55);
+  border-bottom: none;
+  position: relative;
 }
 
 .terminal-img {
   width: 100%;
   height: auto;
   display: block;
+  border-radius: 18px 18px 0 0;
+}
+
+.terminal-img-wrap::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 120px;
+  background: linear-gradient(to bottom, transparent, #0a0a0a);
+  pointer-events: none;
+  z-index: 10;
 }
 
 @media (max-width: 767px) {
   .terminal-section { padding: 0.5rem 1rem 5rem; }
-  .terminal-img-wrap { border-radius: 14px; }
+  .terminal-img-wrap { border-radius: 14px 14px 0 0; }
+  .terminal-img { border-radius: 12px 12px 0 0; }
 }
 </style>
