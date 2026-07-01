@@ -11,6 +11,9 @@ node_modules
 # Build
 dist
 
+# Vercel build output — never commit, Vercel generates this itself
+.vercel/output
+
 # Logs
 logs
 *.log
